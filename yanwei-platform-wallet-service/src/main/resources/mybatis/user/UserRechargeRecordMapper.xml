@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.3//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yanwei.platform.wallet.repository.user.UserRechargeRecordMapper">   
+ 	<resultMap id="BaseResultMap" type="com.yanwei.platform.wallet.domain.user.UserRechargeRecordVO">
+		<result property="rechargeOrderNo" column="recharge_order_no" jdbcType="VARCHAR" />
+		<result property="tradeNo" column="trade_no" jdbcType="VARCHAR" />
+		
+		<result property="tradeType" column="trade_type" jdbcType="INTEGER" />
+			
+		<result property="amt" column="amt" jdbcType="DECIMAL" />
+		<result property="realAmt" column="real_amt" jdbcType="DECIMAL" />
+		<result property="settFee" column="sett_fee" jdbcType="DECIMAL" />
+		
+		<result property="status" column="status" jdbcType="INTEGER" />
+		
+		<result property="crTime" column="cr_time" jdbcType="VARCHAR" />
+		
+		<result property="feeRate" column="fee_rate" jdbcType="DECIMAL" />
+		
+		<result property="undertaker" column="undertaker" jdbcType="INTEGER" />
+		
+		<result property="bankName" column="bank_name" jdbcType="VARCHAR" />
+		<result property="userName" column="user_name" jdbcType="VARCHAR" />
+	</resultMap>
+	
+	
+ 	<sql id="Base_Column_List">
+ 		ur.`recharge_order_no`,ur.`trade_no`,
+ 		ur.`trade_type`,
+		ur.`amt`,ur.`real_amt`,ur.`sett_fee`,
+		ur.`status`,ur.`cr_time`,
+		ur.`fee_rate`,ur.`undertaker`,
+		ur.`bank_name`,
+		ua.`user_name`
+ 	</sql>
+ 	
+ 	<select id="find" parameterType="map" resultMap="BaseResultMap">
+ 		SELECT 
+ 		<include refid="Base_Column_List" />
+ 		FROM `acc_user_recharge_record` ur 
+		JOIN `acc_user_acc_info` ua
+		ON ur.`user_id`=ua.`user_id`
+ 		<where>
+ 			<if test="userId != null">
+				AND	ur.`user_id`=#{userId}
+			</if>
+			<if test="startDate != null and startDate != ''">
+				AND ur.`cr_time` &gt;= CONCAT(#{startDate},' 00:00:00')
+			</if>
+			<if test="endDate != null and endDate != ''">
+				AND ur.`cr_time` &lt;= CONCAT(#{endDate},' 59:59:59')
+			</if>
+			<if test="orderNo != null and orderNo != ''">
+				AND ur.`recharge_order_no`=#{orderNo}
+			</if>
+			<if test="tradeNo != null and tradeNo != ''">
+				AND ur.`trade_no`=#{tradeNo}
+			</if>
+			<if test="orderNoOrTradeNo != null and orderNoOrTradeNo != ''">
+				AND (ur.`recharge_order_no` LIKE CONCAT('%',#{orderNoOrTradeNo},'%')
+					OR
+					ur.`trade_no` LIKE CONCAT('%',#{orderNoOrTradeNo},'%'))
+			</if>
+			<if test="tradeType != null">
+				AND ur.`trade_type`=#{tradeType}
+			</if>
+			<if test="statusWeb != null">
+				<if test="statusWeb == 'notPay'">
+					AND (ur.`status`=1 OR ur.`status`=2 OR ur.`status`=3 OR ur.`status`=5)
+				</if>
+				<if test="statusWeb == 'paySucc'">
+					AND (ur.`status`=4 )
+				</if>
+			</if>
+ 		</where>
+ 		ORDER BY ur.`cr_time` DESC
+ 	</select>
+ 	
+ 	<insert id="batchInsert" parameterType="map">
+ 		INSERT INTO `acc_user_recharge_record`
+        	(user_id,
+			trade_no,recharge_order_no,agent_pay_order_no,
+			trade_type,
+			amt,real_amt,sett_fee,
+			STATUS,
+			cr_time,
+			fee_rate,undertaker,
+			bank_name,bank_code,bank_card_no) 
+        	VALUES
+        <foreach item="item" index="index" collection="list" separator =",">    	
+        	(
+            	#{item.userId},
+            	#{item.tradeNo},#{item.rechargeOrderNo},#{item.agentPayOrderNo},
+           	 	#{item.tradeType},
+           	 	#{item.amt},#{item.realAmt},#{item.settFee},
+           	 	#{item.status},
+           	 	#{item.crTime},
+           	 	#{item.feeRate},#{item.undertaker},
+           	 	#{item.bankCode},#{item.bankName},#{item.bankCardNo}
+        	)
+        </foreach>
+ 	</insert>
+
+	<select id="countRealAmt" parameterType="map" resultType="java.math.BigDecimal">
+		SELECT
+		SUM(ur.`real_amt`)
+		FROM `acc_user_recharge_record` ur
+		<where>
+			<if test="userId != null">
+				AND	ur.`user_id`=#{userId}
+			</if>
+			<if test="startDate != null and startDate != ''">
+				AND ur.`cr_time` &gt;= CONCAT(#{startDate},' 00:00:00')
+			</if>
+			<if test="endDate != null and endDate != ''">
+				AND ur.`cr_time` &lt;= CONCAT(#{endDate},' 59:59:59')
+			</if>
+			<if test="tradeType != null">
+				AND ur.`trade_type`=#{tradeType}
+			</if>
+			<if test="status != null">
+				AND ur.`status`=#{status}
+			</if>
+		</where>
+	</select>
+</mapper>

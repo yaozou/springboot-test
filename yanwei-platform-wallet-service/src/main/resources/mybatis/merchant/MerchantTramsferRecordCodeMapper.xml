@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.3//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yanwei.platform.wallet.repository.merchant.MerchantTramsferRecordCodeMapper">   
+ 	<resultMap id="BaseResultMap" type="com.yanwei.platform.wallet.domain.merchant.MerchantTramsferRecordVO">
+		<result property="transferOrderNo" column="transfer_order_no" jdbcType="VARCHAR" />
+		<result property="tradeNo" column="trade_no" jdbcType="VARCHAR" />
+		<result property="status" column="status" jdbcType="INTEGER" />
+		<result property="totalTransferNum" column="total_transfer_num" jdbcType="INTEGER" />
+		<result property="crTime" column="cr_time" jdbcType="VARCHAR" />
+		
+		<result property="amt" column="amt" jdbcType="DECIMAL" />
+		
+		<result property="userName" column="user_name" jdbcType="VARCHAR" />
+		<result property="userRealName" column="user_real_name" jdbcType="VARCHAR" />
+		
+		<result property="phone" column="biz_phone" jdbcType="VARCHAR" />
+	</resultMap>
+	
+	
+ 	<sql id="Base_Column_List">
+ 		mt.`transfer_order_no`,mt.`trade_no`,mt.`status`,mt.`total_transfer_num`,mt.`cr_time`,
+		ur.`amt`,
+		ua.`user_name`,ua.`user_real_name`,ua.`biz_phone`
+ 	</sql>
+ 	
+ 	<select id="find" parameterType="map" resultMap="BaseResultMap">
+ 		SELECT 
+ 		<include refid="Base_Column_List" />
+ 		FROM `acc_merchant_tramsfer_record` mt LEFT JOIN `acc_user_recharge_record` ur
+		ON mt.`trade_no` = ur.`trade_no`
+		JOIN `acc_user_acc_info` ua ON ur.`user_id`=ua.`user_id`
+ 		<where>
+ 			<if test="merchantId != null">
+				AND	mt.`merchant_id`=#{merchantId}
+			</if>
+			<if test="startDate != null and startDate != ''">
+				AND mt.`cr_time` &gt;= CONCAT(#{startDate},' 00:00:00')
+			</if>
+			<if test="endDate != null and endDate != ''">
+				AND mt.`cr_time` &lt;= CONCAT(#{endDate},' 59:59:59')
+			</if>
+			<if test="orderNo != null and orderNo != ''">
+				AND mt.`transfer_order_no` LIKE CONCAT('%',#{orderNo},'%')
+			</if>
+			<if test="statusWeb != null">
+				<if test="statusWeb == 'notPay'">
+					AND (mt.`status`=1 OR mt.`status`=2 OR mt.`status`=3 OR mt.`status`=5)
+				</if>
+				<if test="statusWeb == 'paySucc'">
+					AND (mt.`status`=4 )
+				</if>
+			</if>
+ 		</where>
+ 		ORDER BY mt.`cr_time` DESC
+ 	</select>
+</mapper>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.3//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yanwei.platform.wallet.repository.basedata.BdBankCodeMapper">   
+ 	<resultMap id="BaseResultMap" type="com.yanwei.platform.entity.basedata.BdBankCode">
+		<id property="id" column="id" jdbcType="BIGINT" />
+		
+		<result property="bankCode" column="bank_code" jdbcType="VARCHAR" />
+		<result property="bankName" column="bank_name" jdbcType="VARCHAR" />
+		
+		<result property="type" column="type" jdbcType="INTEGER" />
+		<result property="status" column="status" jdbcType="INTEGER" />
+		
+		<result property="logoPath" column="logo_path" jdbcType="VARCHAR" />
+		<result property="color" column="color" jdbcType="VARCHAR" />
+		
+		<result property="bankCardType" column="bank_card_type" jdbcType="INTEGER" />
+		<result property="useChannel" column="use_channel" jdbcType="INTEGER" />
+	</resultMap>
+ 	<sql id="Base_Column_List">
+ 		bc.`id`,bc.`bank_code`,bc.`bank_name`,bc.`type`,
+ 		bc.`status`,bc.`logo_path`,bc.`color`,
+ 		bc.`bank_card_type`,bc.`use_channel`
+ 	</sql>
+ 	<select id="list" parameterType="map" resultMap="BaseResultMap">
+ 		SELECT 
+ 		<include refid="Base_Column_List" />
+ 		FROM `acc_bd_bank_code` bc
+ 		<where>
+ 			<if test="type != null">
+				AND	bc.`type`=#{type}
+			</if>
+			<if test="status != null">
+				AND	bc.`status`=#{status}
+			</if>	
+			<if test="bankCardType != null">
+				AND bc.`bank_card_type`=#{bankCardType}
+			</if>	
+			<if test="useChannel != null">
+				AND bc.`use_channel`=#{useChannel}
+			</if>	
+ 		</where>
+ 	</select>
+ 	
+</mapper>

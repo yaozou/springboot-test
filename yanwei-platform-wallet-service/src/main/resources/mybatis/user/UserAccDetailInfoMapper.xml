@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.3//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yanwei.platform.wallet.repository.user.UserAccDetailInfoMapper">   
+ 	<resultMap id="BaseResultMap" type="com.yanwei.platform.wallet.domain.user.UserAccDeatilVO">
+		<result property="userId" column="user_id" jdbcType="BIGINT" />
+		<result property="payType" column="pay_type" jdbcType="INTEGER" />
+		<result property="tradeType" column="trade_type" jdbcType="INTEGER" />
+		
+		<result property="amt" column="amt" jdbcType="DECIMAL" />
+		<result property="realAmt" column="real_amt" jdbcType="DECIMAL" />
+		
+		<result property="orderNo" column="order_no" jdbcType="VARCHAR" />
+		<result property="tradeNo" column="trade_no" jdbcType="VARCHAR" />
+		<result property="crTime" column="cr_time" jdbcType="VARCHAR" />
+		
+		<result property="amount" column="amount" jdbcType="DECIMAL" />
+		<result property="forzen" column="forzen" jdbcType="DECIMAL" />
+		
+		<result property="userName" column="user_name" jdbcType="VARCHAR" />
+		
+		<result property="payStatus" column="pay_status" jdbcType="INTEGER" />
+	</resultMap>
+	
+	
+ 	<sql id="Base_Column_List">
+ 		uad.`user_id`,uad.`pay_type`,uad.`trade_type`,
+		uad.`amt`,uad.`real_amt`,
+		uad.`order_no`,uad.`trade_no`,uad.`cr_time`,
+		uad.`amount`,uad.`forzen`,uad.`pay_status`,
+		ua.`user_name`
+ 	</sql>
+ 	
+ 	<select id="find" parameterType="map" resultMap="BaseResultMap">
+ 		SELECT 
+ 		<include refid="Base_Column_List" />
+ 		FROM`acc_user_acc_detail_info` uad 
+		JOIN `acc_user_acc_info` ua ON uad.`user_id` = ua.`user_id`
+ 		<where>
+ 			<if test="userId != null">
+				AND	uad.`user_id`=#{userId}
+			</if>
+			<if test="startDate != null and startDate != ''">
+				AND uad.`cr_time` &gt;= CONCAT(#{startDate},' 00:00:00')
+			</if>
+			<if test="endDate != null and endDate != ''">
+				AND uad.`cr_time` &lt;= CONCAT(#{endDate},' 59:59:59')
+			</if>
+			<if test="orderNoOrTradeNo != null and orderNoOrTradeNo != ''">
+				AND (uad.`order_no` LIKE CONCAT('%',#{orderNoOrTradeNo},'%')
+					OR
+					uad.`trade_no` LIKE CONCAT('%',#{orderNoOrTradeNo},'%'))
+			</if>
+			<if test="orderNo != null and orderNo != ''">
+				AND uad.`order_no`=#{orderNo}
+			</if>
+			<if test="tradeNo != null and tradeNo != ''">
+				AND uad.`trade_no`=#{tradeNo}
+			</if>
+			<if test="tradeType != null and tradeType != 0">
+				AND uad.`trade_type`=#{tradeType}
+			</if>
+			<if test="payStatus != null and payStatus != 0">
+				AND uad.`pay_status`=#{payStatus}
+			</if>
+			<if test="specialPaySucc!=null and specialPaySucc!=''">
+				AND (uad.`pay_status`=2 OR 
+					uad.`id` IN (SELECT ua.`id` FROM `acc_user_acc_detail_info` ua 
+						JOIN `acc_user_sett_record` us 
+						ON ua.`order_no` = us.`sett_order_no` 
+						WHERE ua.`trade_type` = 4 AND 
+						(us.`status` = 1 OR us.`status` = 2 OR us.`status` = 4 OR us.`status` = 5)))
+			</if>
+			<if test="app != null and app != ''">
+				AND (uad.`trade_type` &lt;&gt; 6 AND uad.`trade_type` &lt;&gt; 7)
+			</if>
+ 		</where>
+ 		ORDER BY uad.`cr_time` DESC
+ 	</select>
+ 	
+ 	<update id="update" parameterType="map">
+		UPDATE `acc_user_acc_detail_info` ua
+		<set>
+			<if test="payStatus != null">
+				ua.`pay_status`=#{payStatus},
+			</if>
+			<if test="amount != null">
+				ua.`amount`=#{amount},
+			</if>
+			<if test="forzen != null">
+				ua.`forzen`=#{forzen},
+			</if>
+			<if test="tradeNo != null and tradeNo != ''">
+				ua.`trade_no`=#{tradeNo},
+			</if>
+			<if test="crTime != null and crTime != ''">
+				ua.`cr_time`=#{crTime},
+			</if>
+		</set>
+		<where>
+			ua.`order_no`=#{orderNo}
+		</where>
+	</update>
+	
+	<insert id="batchInsert" parameterType="map">
+		INSERT INTO `acc_user_acc_detail_info`
+        	(user_id,
+			pay_type,trade_type,
+			amt,real_amt,sett_fee,
+			order_no,trade_no,
+			cr_time,
+			amount,forzen,
+			pay_status) 
+        	VALUES
+        <foreach item="item" index="index" collection="list" separator =",">   	
+        	(
+            	#{item.userId},
+            	#{item.payType},#{item.tradeType},
+           	 	#{item.amt},#{item.realAmt},#{item.settFee},
+           	 	#{item.orderNo},#{item.tradeNo},
+           	 	#{item.crTime},
+           	 	#{item.amount},#{item.forzen},
+           	 	#{item.payStatus}
+        	)
+        </foreach>
+	</insert>
+
+	<select id="countRealAmt" parameterType="map" resultType="java.math.BigDecimal">
+		SELECT
+		SUM(uad.`real_amt`)
+		FROM `acc_user_acc_detail_info` uad
+		<where>
+			<if test="userId != null">
+				AND	uad.`user_id`=#{userId}
+			</if>
+			<if test="startDate != null and startDate != ''">
+				AND uad.`cr_time` &gt;= CONCAT(#{startDate},' 00:00:00')
+			</if>
+			<if test="endDate != null and endDate != ''">
+				AND uad.`cr_time` &lt;= CONCAT(#{endDate},' 59:59:59')
+			</if>
+
+			<if test="tradeType != null and tradeType != 0">
+				AND uad.`trade_type`=#{tradeType}
+			</if>
+			<if test="payStatus != null and payStatus != 0">
+				AND uad.`pay_status`=#{payStatus}
+			</if>
+		</where>
+	</select>
+</mapper>

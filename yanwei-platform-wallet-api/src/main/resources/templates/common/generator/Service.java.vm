@@ -1,0 +1,24 @@
+package ${package}.service;
+
+import ${package}.model.${className}Entity;
+import com.yanwei.platform.common.page.Pagination;
+
+/**
+ * ${comments}
+ * @author ${author}
+ * @email ${email}
+ * @version $Id: I${className}Service.java, v 0.1 ${datetime} ${author} Exp $
+ */
+public interface I${className}Service {
+
+	public ${className}Entity findById(${pk.attrType} ${pk.attrname});
+
+	public ${className}Entity save(${className}Entity bean);
+
+	public ${className}Entity update(${className}Entity bean);
+
+	public ${className}Entity deleteById(${pk.attrType} ${pk.attrname});
+ 
+    public Pagination<${className}Entity> getPage(${className}Entity bean,Integer pageNo, Integer pageSize);
+
+}

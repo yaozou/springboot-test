@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.3//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yanwei.platform.wallet.repository.user.UserSettRecordMapper">   
+ 	<resultMap id="BaseResultMap" type="com.yanwei.platform.wallet.domain.user.UserSettRecordVO">
+		<result property="settOrderNo" column="sett_order_no" jdbcType="VARCHAR" />
+		<result property="tradeNo" column="trade_no" jdbcType="VARCHAR" />
+		
+		<result property="settType" column="sett_type" jdbcType="INTEGER" />
+		
+		<result property="amt" column="amt" jdbcType="DECIMAL" />
+		<result property="realAmt" column="real_amt" jdbcType="DECIMAL" />
+		<result property="settFee" column="sett_fee" jdbcType="DECIMAL" />
+		
+		<result property="bankName" column="bank_name" jdbcType="VARCHAR" />
+		<result property="bankCardNo" column="bank_card_no" jdbcType="VARCHAR" />
+		
+		<result property="applyTime" column="apply_time" jdbcType="VARCHAR" />
+		<result property="dealTime" column="deal_time" jdbcType="VARCHAR" />
+		
+		<result property="status" column="status" jdbcType="INTEGER" />
+		
+		<result property="feeRate" column="fee_rate" jdbcType="DECIMAL" />
+		<result property="undertaker" column="undertaker" jdbcType="INTEGER" />
+
+		<result property="userName" column="user_name" jdbcType="VARCHAR" />
+	</resultMap>
+	
+	
+ 	<sql id="Base_Column_List">
+ 		us.`sett_order_no`,us.`trade_no`,
+		us.`amt`,us.`real_amt`,us.`sett_fee`,
+		us.`bank_name`,us.`bank_card_no`,
+		us.`apply_time`,us.`deal_time`,
+		us.`status`,
+		us.`fee_rate`,us.`undertaker`,
+		ua.`user_name`
+ 	</sql>
+ 	
+ 	<select id="find" parameterType="map" resultMap="BaseResultMap">
+ 		SELECT 
+ 		<include refid="Base_Column_List" />
+ 		FROM `acc_user_sett_record` us JOIN `acc_user_acc_info` ua ON us.`user_id`=ua.`user_id`
+ 		<where>
+ 			<if test="userId != null">
+				AND	us.`user_id`=#{userId}
+			</if>
+			<if test="startDate != null and startDate != ''">
+				AND us.`apply_time` &gt;= CONCAT(#{startDate},' 00:00:00')
+			</if>
+			<if test="endDate != null and endDate != ''">
+				AND us.`apply_time` &lt;= CONCAT(#{endDate},' 59:59:59')
+			</if>
+			<if test="orderNo != null and orderNo != ''">
+				AND us.`sett_order_no`=#{orderNo}
+			</if>
+			<if test="tradeNo != null and tradeNo != ''">
+				AND us.`trade_no`=#{tradeNo}
+			</if>
+			<if test="orderNoOrTradeNo != null and orderNoOrTradeNo != ''">
+				AND (us.`sett_order_no` LIKE CONCAT('%',#{orderNoOrTradeNo},'%')
+					OR
+					us.`trade_no` LIKE CONCAT('%',#{orderNoOrTradeNo},'%'))
+			</if>
+			<if test="settType != null">
+				AND us.`sett_type`=#{settType}
+			</if>
+			<if test="statusWeb != null">
+				<if test="statusWeb == 'notPay'">
+					AND (us.`status`=1 OR us.`status`=2 OR us.`status`=4 OR us.`status`=5)
+				</if>
+				<if test="statusWeb == 'paySucc'">
+					AND (us.`status`=3 )
+				</if>
+			</if>
+			<if test="status != null">
+				AND us.`status`=#{status}
+			</if>
+			<if test="undertaker != null">
+				AND us.`undertaker`=#{undertaker}
+			</if>
+ 		</where>
+ 		
+ 		ORDER BY us.`apply_time` DESC
+ 	</select>
+ 	
+ 	<select id="countAmt" parameterType="map" resultType="java.math.BigDecimal">
+ 		SELECT SUM(us.`amt`)
+ 		FROM `acc_user_sett_record` us
+ 		<where>
+ 			<if test="userId != null">
+				AND	us.`user_id`=#{userId}
+			</if>
+			<if test="settType != null">
+				AND us.`sett_type`=#{settType}
+			</if>
+			<if test="status != null">
+				AND us.`status`=#{status}
+			</if>
+			<if test="usedWithrawAmt != null">
+				AND (us.`status`=1 OR us.`status`=2 OR us.`status`=3)
+			</if>
+		</where>
+	</select>
+
+	<select id="countFee" parameterType="map" resultType="java.math.BigDecimal">
+		SELECT SUM(us.`sett_fee`)
+		FROM `acc_user_sett_record` us
+		<where>
+			<if test="userId != null">
+				AND	us.`user_id`=#{userId}
+			</if>
+			<if test="settType != null">
+				AND us.`sett_type`=#{settType}
+			</if>
+			<if test="status != null">
+				AND us.`status`=#{status}
+			</if>
+			<if test="startDate != null and startDate != ''">
+				AND us.`apply_time` &gt;= CONCAT(#{startDate},' 00:00:00')
+			</if>
+			<if test="endDate != null and endDate != ''">
+				AND us.`apply_time` &lt;= CONCAT(#{endDate},' 59:59:59')
+			</if>
+			<if test="orderNo != null and orderNo != ''">
+				AND us.`sett_order_no`=#{orderNo}
+			</if>
+			<if test="tradeNo != null and tradeNo != ''">
+				AND us.`trade_no`=#{tradeNo}
+			</if>
+			<if test="undertaker != null">
+				AND us.`undertaker`=#{undertaker}
+			</if>
+		</where>
+	</select>
+</mapper>

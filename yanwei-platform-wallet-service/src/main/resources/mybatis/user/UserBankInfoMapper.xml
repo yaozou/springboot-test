@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.3//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yanwei.platform.wallet.repository.user.UserBankInfoMapper">   
+ 	<resultMap id="BaseResultMap" type="com.yanwei.platform.wallet.domain.user.UserBankInfoVO">
+		<id property="id" column="id" jdbcType="BIGINT" />
+		<result property="userId" column="user_id" jdbcType="BIGINT" />
+		<result property="bankCode" column="bank_code" jdbcType="VARCHAR" />
+		<result property="bankName" column="bank_name" jdbcType="VARCHAR" />
+		
+		<result property="bankType" column="bank_type" jdbcType="BIGINT" />
+		<result property="bankCardNo" column="bank_card_no" jdbcType="VARCHAR" />
+		<result property="bankUserName" column="bank_user_name" jdbcType="VARCHAR" />
+		<result property="bankPhone" column="bank_phone" jdbcType="VARCHAR" />
+
+		<result property="crTime" column="cr_time" jdbcType="VARCHAR" />
+		<result property="bindTime" column="bind_time" jdbcType="VARCHAR" />
+		<result property="unboundTime" column="unbound_time" jdbcType="VARCHAR" />
+		<result property="bindDate" column="bind_date" jdbcType="VARCHAR" />
+		
+		<result property="status" column="status" jdbcType="INTEGER" />
+		<result property="tranceNum" column="trance_num" jdbcType="VARCHAR" />
+		<result property="transDate" column="trans_date" jdbcType="VARCHAR" />
+		
+		<result property="isAgreeAgreement" column="is_agree_agreement" jdbcType="INTEGER" />
+		
+		<result property="logoPath" column="logo_path" jdbcType="VARCHAR" />
+		<result property="color" column="color" jdbcType="VARCHAR" />
+	</resultMap>
+	<resultMap id="PageResultMap" type="com.yanwei.platform.wallet.domain.user.UserBankInfoPageVO">
+		<result property="userId" column="user_id" jdbcType="BIGINT" />
+				
+		<result property="userRealName" column="bank_user_name" jdbcType="VARCHAR" />
+		<result property="userName" column="user_name" jdbcType="VARCHAR" />
+		<result property="userIdNumber" column="user_id_number" jdbcType="VARCHAR" />
+		
+		<result property="bankCode" column="bank_code" jdbcType="VARCHAR" />
+		<result property="bankName" column="bank_name" jdbcType="VARCHAR" />
+		<result property="bankType" column="bank_type" jdbcType="BIGINT" />
+		<result property="bankCardNo" column="bank_card_no" jdbcType="VARCHAR" />
+		<result property="bankPhone" column="bank_phone" jdbcType="VARCHAR" />
+		
+		<result property="bindDate" column="bind_date" jdbcType="VARCHAR" />
+	</resultMap>
+	
+ 	<sql id="Base_Column_List">
+ 		ub.`id`,ub.`user_id`,
+		ub.`bank_code`,ub.`bank_name`,ub.`bank_type`,
+		ub.`bank_card_no`,ub.`bank_user_name`,ub.`bank_phone`,
+		ub.`cr_time`,ub.`bind_time`,ub.`bind_date`,ub.`unbound_time`,
+		ub.`status`,ub.`trance_num`,ub.`trans_date`,
+		bc.`logo_path`,bc.`color`
+ 	</sql>
+ 	
+ 	<sql id="Page_Column_List">
+ 		ub.`user_id`,
+ 		ub.`bank_user_name`,ua.`user_name`,ua.`user_id_number`,
+		ub.`bank_code`,ub.`bank_name`,ub.`bank_type`,
+		ub.`bank_card_no`,ub.`bank_phone`,
+		ub.`bind_date`
+ 	</sql>
+ 	
+ 	<insert id="insert" parameterType="map">
+ 		INSERT INTO `acc_user_bank_info` 
+ 		<trim prefix="(" suffix=")" suffixOverrides=",">
+ 		`user_id`,
+		`bank_code`,`bank_name`,`bank_type`,
+		`bank_card_no`,`bank_phone`,`bank_user_name`,
+		`cr_time`,`status`,`is_agree_agreement`,
+		`trance_num`,`trans_date`
+		</trim>
+	   VALUES
+	   (#{userId},
+	   #{bankCode},#{bankName},#{bankType},
+	   #{bankCardNo},#{bankPhone},#{bankUserName},
+	   #{crTime},1,2,#{tranceNum},#{transDate})
+ 	</insert>
+ 	
+ 	<update id="update" parameterType="map">
+ 		UPDATE `acc_user_bank_info` AS ub 
+		<set>				
+			<if test="phone != null">
+				ub.`phone`=#{phone},
+			</if>
+			<if test="tranceNum != null">
+				ub.`trance_num`=#{tranceNum},
+			</if>	
+			<if test="transDate != null">
+				ub.`trans_date`=#{transDate},
+			</if>	
+			<if test="status != null">
+				ub.`status`=#{status},
+			</if>
+
+			<if test="bindTime != null">
+				ub.`bind_time`=#{bindTime},
+			</if>
+			<if test="bindDate != null">
+				ub.`bind_date`=#{bindDate},
+			</if>
+			<if test="unboundTime != null">
+				ub.`unbound_time`=#{unboundTime},
+			</if>
+			
+			<if test="isAgreeAgreement != null">
+				ub.`is_agree_agreement`=#{isAgreeAgreement},
+			</if>
+		</set>
+		<where>
+			<if test="userId != null">
+				AND	ub.`user_id`=#{userId}
+			</if>
+			<if test="tranceNum != null and tranceNum != ''">
+				AND	ub.`trance_num`=#{tranceNum}
+			</if>
+			<if test="userBankId != null">
+				AND	ub.`id`=#{userBankId}
+			</if>
+		</where>
+ 	</update>
+ 	
+ 	<select id="getInfo" parameterType="map" resultMap="BaseResultMap">
+ 		SELECT 
+ 		<include refid="Base_Column_List" />
+ 		FROM `acc_user_bank_info` ub 
+ 			JOIN `acc_bd_bank_code` bc 
+ 			ON ub.`bank_code`=bc.`bank_code` 
+ 		<where>
+ 			<if test="userId != null">
+				AND	ub.`user_id`=#{userId}
+			</if>
+			<if test="bankCardNo != null and bankCardNo!=''">
+				AND	ub.`bank_card_no`=#{bankCardNo}
+			</if>
+			<if test="status != null">
+				AND	ub.`status`=#{status}
+			</if>
+			<if test="tranceNum != null">
+				AND ub.`trance_num`=#{tranceNum}
+			</if>
+			<if test="canUseBankStatus != null">
+				AND bc.`status`=#{canUseBankStatus}
+			</if>
+			<if test="canUseBankType != null">
+				AND bc.`type`=#{canUseBankType}
+			</if>	
+			<if test="useChannel != null">
+				AND bc.`use_channel`=#{useChannel}
+			</if>
+ 		</where>
+ 	</select>
+ 	
+ 	<select id="list" parameterType="map" resultMap="BaseResultMap">
+ 		SELECT 
+ 		<include refid="Base_Column_List" />
+ 		FROM `acc_user_bank_info` ub 
+ 			JOIN `acc_bd_bank_code` bc 
+ 			ON ub.`bank_code`=bc.`bank_code` AND bc.`bank_card_type`=ub.`bank_type`
+ 		<where>
+ 			<if test="userId != null">
+				AND	ub.`user_id`=#{userId}
+			</if>
+			<if test="bankCardNo != null and bankCardNo!=''">
+				AND	ub.`bank_card_no`=#{bankCardNo}
+			</if>
+			<if test="status != null">
+				AND	ub.`status`=#{status}
+			</if>
+			<if test="tranceNum != null">
+				AND ub.`trance_num`=#{tranceNum}
+			</if>
+			<if test="canUseBankStatus != null">
+				AND bc.`status`=#{canUseBankStatus}
+			</if>
+			<if test="canUseBankType != null">
+				AND bc.`type`=#{canUseBankType}
+			</if>	
+			<if test="useChannel != null">
+				AND bc.`use_channel`=#{useChannel}
+			</if>
+ 		</where>
+ 	</select>
+ 	
+ 	<select id="pageFind" parameterType="map" resultMap="PageResultMap">
+ 		SELECT 
+ 		<include refid="Page_Column_List" />
+ 		FROM `acc_user_bank_info` ub 
+ 			JOIN `acc_user_acc_info` ua
+ 			ON ub.`user_id` = ua.`user_id`
+ 		<where>
+ 			<if test="userId != null">
+				AND	ub.`user_id`=#{userId}
+			</if>
+			<if test="bankCardNo != null and bankCardNo!=''">
+				AND	ub.`bank_card_no`=#{bankCardNo}
+			</if>
+			<if test="status != null">
+				AND	ub.`status`=#{status}
+			</if>
+			<if test="tranceNum != null">
+				AND ub.`trance_num`=#{tranceNum}
+			</if>
+			<if test="nameOrPhone != null and nameOrPhone != ''">
+				AND (ub.`bank_user_name` LIKE CONCAT('%',#{nameOrPhone},'%')
+				OR ub.`bank_phone` LIKE	CONCAT('%',#{nameOrPhone},'%'))
+			</if>
+ 		</where>
+		ORDER BY bind_time DESC
+ 	</select>
+</mapper>

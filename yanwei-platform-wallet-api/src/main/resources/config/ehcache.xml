@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ehcache xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="http://ehcache.org/ehcache.xsd"
+	updateCheck="false">
+	<diskStore path="java.io.tmpdir/Tmp_EhCache" />
+	
+	<defaultCache eternal="false" maxElementsInMemory="10000"
+		overflowToDisk="false" diskPersistent="false" timeToIdleSeconds="0"
+		timeToLiveSeconds="600" memoryStoreEvictionPolicy="LRU" />
+		
+	<cache name="users" maxEntriesLocalHeap="2000" timeToLiveSeconds="600"  ></cache>
+	
+	<cache name="sysDict" maxEntriesLocalHeap="2000" timeToLiveSeconds="600" ></cache>
+	
+	<!--会员等级　timeToLiveSeconds 对象存活时间 -->
+	<cache name="memberGrade" maxEntriesLocalHeap="200" timeToLiveSeconds="600" ></cache>
+	<!--基础信息-->
+	<cache name="memberBaseSettings" maxEntriesLocalHeap="200" timeToLiveSeconds="600" ></cache>
+	
+	
+		
+	<cache name="role" eternal="false" maxElementsInMemory="10000"
+		overflowToDisk="false" diskPersistent="false" timeToIdleSeconds="0"
+		timeToLiveSeconds="0" memoryStoreEvictionPolicy="LFU" />
+		
+</ehcache>

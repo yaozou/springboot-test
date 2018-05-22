@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.3//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yanwei.platform.wallet.repository.basedata.BdPlatformFeeMapper">   
+ 	<resultMap id="BaseResultMap" type="com.yanwei.platform.entity.basedata.BdPlatformFee">
+		<id property="id" column="id" jdbcType="BIGINT" />
+		
+		<result property="code" column="code" jdbcType="VARCHAR" />
+		<result property="fee" column="fee" jdbcType="DECIMAL" />
+		
+		<result property="undertaker" column="undertaker" jdbcType="INTEGER" />
+		<result property="remark" column="remark" jdbcType="VARCHAR" />
+	</resultMap>
+ 	<sql id="Base_Column_List">
+ 		pf.`id`,pf.`code`,pf.`fee`,pf.`undertaker`,pf.`remark` 
+ 	</sql>
+ 	<select id="list" parameterType="map" resultMap="BaseResultMap">
+ 		SELECT 
+ 		<include refid="Base_Column_List" />
+ 		FROM `acc_bd_platform_fee` pf
+ 		<where>
+ 			<if test="code != null">
+				AND	pf.`code`=#{code} 
+			</if>
+			<if test="undertaker != null">
+				AND	pf.`undertaker`=#{undertaker}
+			</if>			
+ 		</where>
+ 	</select>
+ 	
+</mapper>
