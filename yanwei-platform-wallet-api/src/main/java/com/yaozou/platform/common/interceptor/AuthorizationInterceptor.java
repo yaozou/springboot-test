@@ -74,7 +74,6 @@ public class AuthorizationInterceptor extends HandlerInterceptorAdapter {
     
     /**
      * 权限控制
-     * @param userType
      * @param url
      * @return
      */
@@ -107,7 +106,6 @@ public class AuthorizationInterceptor extends HandlerInterceptorAdapter {
      * 返回输出json
      *
      * @param response
-     * @param resultCode
      */
     private static final void out(HttpServletResponse response, ApiOut<String> apiOut) {
         ObjectMapper objectMapper = new ObjectMapper();
@@ -129,22 +127,22 @@ public class AuthorizationInterceptor extends HandlerInterceptorAdapter {
     
     public boolean isInterceptionUrl(String url) {
 		String[] notInterUrl = {"/platform/user/accDetail/refundOrder"};
-		for (String str : notInterUrl) {
+		/*for (String str : notInterUrl) {
 			if (url.indexOf(str) > -1) {
 				return false;
 			}
-		}
-		return true;
+		}*/
+		return false;
 	}
 
 	public  boolean haveToVerifyToken(String url) {
         String[] notInterUrl = {"/app/user/acount/sendMsgForBindPhone","/app/user/acount/balance",
                                 "/platform/user/acount/balance","/platform/user/acount/rebindPhone","/platform/user/acount/sendMsgForBindPhone"};
-        for (String str : notInterUrl) {
+        /*for (String str : notInterUrl) {
             if (url.indexOf(str) > -1) {
                 return false;
             }
-        }
-        return true;
+        }*/
+        return false;
     }
 }

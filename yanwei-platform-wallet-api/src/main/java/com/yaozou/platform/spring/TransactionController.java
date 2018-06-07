@@ -5,7 +5,9 @@ package com.yaozou.platform.spring;/**
 import com.yaozou.platform.member.domain.ApiOut;
 import com.yaozou.platform.spring.service.TransactionService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -14,13 +16,13 @@ import org.springframework.web.bind.annotation.RestController;
  * @author yaozou
  * @create 2018-06-07 16:15
  **/
-@RestController
+@Controller
 @RequestMapping("/spring/transaction")
 public class TransactionController {
     @Autowired
     private TransactionService transactionService;
 
-    @GetMapping(path = "/test")
+    @PostMapping(path = "/test")
     public void test(){
         transactionService.insert();
     }

@@ -7,7 +7,7 @@
  		bc.`status`,bc.`logo_path`,bc.`color`,
  		bc.`bank_card_type`,bc.`use_channel`
  	</sql>
- 	<select id="list" parameterType="map" resultMap="map">
+ 	<select id="list" parameterType="map" resultType="map">
  		SELECT 
  		<include refid="Base_Column_List" />
  		FROM `acc_bd_bank_code` bc

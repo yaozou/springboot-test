@@ -6,6 +6,7 @@ import com.yaozou.platform.spring.repository.basedata.BdBankCodeMapper;
 import com.yaozou.platform.spring.service.TransactionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.HashMap;
 import java.util.List;
@@ -23,7 +24,7 @@ public class TransactionServiceImpl implements TransactionService {
 
     @Override
     public void insert() {
-
+        updateNotThrowException("alipay",1);
     }
 
     private List query(String bankCode){
@@ -32,7 +33,13 @@ public class TransactionServiceImpl implements TransactionService {
         return bdBankCodeMapper.list(map);
     }
 
-    private void update(String bankCode,int status){
+    @Transactional
+     private void update(String bankCode,int status){
+        updateNotThrowException(bankCode,status);
+        throw new RuntimeException();
+    }
+
+    private void updateNotThrowException(String bankCode,int status){
         Map<String, Object> map = new HashMap<>();
         map.put("bankCode",bankCode);
         map.put("status",status);
