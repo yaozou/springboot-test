@@ -23,8 +23,15 @@ public class TransactionServiceImpl implements TransactionService {
     private BdBankCodeMapper bdBankCodeMapper;
 
     @Override
-    public void insert() {
-        updateNotThrowException("alipay",1);
+    public void insert(int type) {
+        switch (type){
+            case 1 : updatePrivate("alipay",1); break;
+            case 2 : updatePublic("alipay",1); break;
+            case 3 : updateAToBForPrivate("alipay",1); break;
+            case 4 : updateAToBForPublic("alipay",1); break;
+            case 5 : updateAToBForPublic("alipay",2); break;
+        }
+
     }
 
     private List query(String bankCode){
@@ -34,9 +41,23 @@ public class TransactionServiceImpl implements TransactionService {
     }
 
     @Transactional
-     private void update(String bankCode,int status){
+    private void updatePrivate(String bankCode,int status){
         updateNotThrowException(bankCode,status);
         throw new RuntimeException();
+    }
+
+    @Transactional
+    void updatePublic(String bankCode,int status){
+        updateNotThrowException(bankCode,status);
+        throw new RuntimeException();
+    }
+
+    private void updateAToBForPrivate(String bankCode,int status){
+        updatePrivate(bankCode,status);
+    }
+
+    private void updateAToBForPublic(String bankCode,int status){
+        updatePublic(bankCode,status);
     }
 
     private void updateNotThrowException(String bankCode,int status){

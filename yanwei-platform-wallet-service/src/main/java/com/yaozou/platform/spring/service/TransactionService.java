@@ -8,5 +8,5 @@ package com.yaozou.platform.spring.service;/**
  * @create 2018-06-07 16:36
  **/
 public interface TransactionService {
-    void insert();
+    void insert(int type);
 }

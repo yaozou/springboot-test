@@ -6,25 +6,23 @@ import com.yaozou.platform.member.domain.ApiOut;
 import com.yaozou.platform.spring.service.TransactionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * 事务
  * @author yaozou
  * @create 2018-06-07 16:15
  **/
-@Controller
+@RestController
 @RequestMapping("/spring/transaction")
 public class TransactionController {
     @Autowired
     private TransactionService transactionService;
 
     @PostMapping(path = "/test")
-    public void test(){
-        transactionService.insert();
+    public ApiOut<Void> test(@RequestParam int type){
+        transactionService.insert(type);
+        return ApiOut.success();
     }
 
 }

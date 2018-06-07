@@ -21,9 +21,20 @@ public class SpringTest {
 
     @Test
     public void transaction() {
+        /**
+         * switch (type){
+         case 1 : updatePrivate("alipay",1); break;
+         case 2 : updatePublic("alipay",1); break;
+         case 3 : updateAToBForPrivate("alipay",1); break;
+         case 4 : updateAToBForPublic("alipay",1); break;
+         case 5 : updateAToBForPublic("alipay",2); break;
+         }
+         */
         //已调通
         url = url+"/spring/transaction/test";
-        Map map = ApiPost.sendPost(url, new HashMap<>(), API_VER);
+        Map param = new HashMap<>();
+        param.put("type",2);
+        Map map = ApiPost.sendPost(url,param , API_VER);
         System.out.println("result:"+map);
     }
 }
