@@ -1,4 +1,4 @@
-package com.yanwei.platform.common.utils;
+package com.yaozou.platform.common.utils;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -6,7 +6,7 @@ import java.util.Random;
 
 import org.springframework.beans.factory.annotation.Value;
 
-import com.yanwei.platform.common.enums.Env;
+import com.yaozou.platform.common.enums.Env;
 
 /**
  * 前三位数字规则

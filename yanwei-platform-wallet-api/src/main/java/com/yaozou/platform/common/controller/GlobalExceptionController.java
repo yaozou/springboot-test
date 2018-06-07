@@ -1,9 +1,9 @@
-package com.yanwei.platform.common.controller;
+package com.yaozou.platform.common.controller;
 
-import com.yanwei.platform.common.enums.CodeEnum;
-import com.yanwei.platform.common.exception.MembersException;
-import com.yanwei.platform.common.exception.ParamValidException;
-import com.yanwei.platform.member.domain.ApiOut;
+import com.yaozou.platform.common.enums.CodeEnum;
+import com.yaozou.platform.common.exception.MembersException;
+import com.yaozou.platform.common.exception.ParamValidException;
+import com.yaozou.platform.member.domain.ApiOut;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 

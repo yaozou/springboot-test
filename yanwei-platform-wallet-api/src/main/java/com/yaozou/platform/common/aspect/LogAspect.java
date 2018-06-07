@@ -1,4 +1,4 @@
-package com.yanwei.platform.common.aspect;
+package com.yaozou.platform.common.aspect;
 
 import java.io.IOException;
 import java.lang.reflect.Method;
@@ -14,12 +14,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.zbus.net.http.Message;
 import com.alibaba.fastjson.JSON;
-import com.yanwei.platform.common.annotation.Log;
-import com.yanwei.platform.common.domain.SysLogDO;
-import com.yanwei.platform.common.utils.ConvertUtils;
-import com.yanwei.platform.common.utils.HttpContextUtils;
-import com.yanwei.platform.common.utils.JSONUtils;
-import com.yanwei.platform.common.zbus.ZbusProducerLogService;
+import com.yaozou.platform.common.annotation.Log;
+import com.yaozou.platform.common.domain.SysLogDO;
+import com.yaozou.platform.common.utils.ConvertUtils;
+import com.yaozou.platform.common.utils.HttpContextUtils;
+import com.yaozou.platform.common.utils.JSONUtils;
+import com.yaozou.platform.common.zbus.ZbusProducerLogService;
 
 /**
  * 系统操作日志记录器
@@ -33,7 +33,7 @@ public class LogAspect {
     @Autowired
     private ZbusProducerLogService zbusProducerLogService;
 
-    @Pointcut("@annotation(com.yanwei.platform.common.annotation.Log)")
+    @Pointcut("@annotation(com.yaozou.platform.common.annotation.Log)")
     public void logPointCut() {
     }
 

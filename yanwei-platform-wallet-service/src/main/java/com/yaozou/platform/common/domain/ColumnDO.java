@@ -1,4 +1,4 @@
-package com.yanwei.platform.common.domain;
+package com.yaozou.platform.common.domain;
 
  
 /**

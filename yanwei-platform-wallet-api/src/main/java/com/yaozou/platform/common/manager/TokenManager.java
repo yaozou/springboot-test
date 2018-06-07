@@ -1,7 +1,7 @@
-package com.yanwei.platform.common.manager;
+package com.yaozou.platform.common.manager;
 
 
-import com.yanwei.platform.common.domain.TokenModel;
+import com.yaozou.platform.common.domain.TokenModel;
 
 /**
  * 对Token进行操作的接口 

@@ -1,11 +1,11 @@
-package com.yanwei.platform.member.domain;
+package com.yaozou.platform.member.domain;
 
 import java.util.List;
 import java.util.Map;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.github.pagehelper.PageInfo;
-import com.yanwei.platform.common.page.Pagination;
+import com.yaozou.platform.common.page.Pagination;
 
 public class ApiOut<T> implements java.io.Serializable {
 

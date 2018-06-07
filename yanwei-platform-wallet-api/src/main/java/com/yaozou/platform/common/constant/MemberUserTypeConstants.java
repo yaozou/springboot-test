@@ -1,4 +1,4 @@
-package com.yanwei.platform.common.constant;
+package com.yaozou.platform.common.constant;
 
 /**
  * 用户类型，跟用户身份

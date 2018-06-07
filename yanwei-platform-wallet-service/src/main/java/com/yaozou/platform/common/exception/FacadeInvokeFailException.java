@@ -1,4 +1,4 @@
-package com.yanwei.platform.common.exception;
+package com.yaozou.platform.common.exception;
 
 /**
  * 远程调用异常

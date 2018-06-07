@@ -1,4 +1,4 @@
-package com.yanwei.platform.common.config;
+package com.yaozou.platform.common.config;
 
 import javax.annotation.PostConstruct;
 import org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator;
@@ -23,10 +23,10 @@ import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandl
 
 import com.alibaba.druid.support.http.StatViewServlet;
 import com.alibaba.druid.support.http.WebStatFilter;
-import com.yanwei.platform.SpringBootMemebersApplication;
-import com.yanwei.platform.common.interceptor.AuthorizationInterceptor;
-import com.yanwei.platform.common.spring.DateConvertEditor;
-import com.yanwei.platform.common.spring.StringConverterTrimmerEditor;
+import com.yaozou.platform.SpringBootMemebersApplication;
+import com.yaozou.platform.common.interceptor.AuthorizationInterceptor;
+import com.yaozou.platform.common.spring.DateConvertEditor;
+import com.yaozou.platform.common.spring.StringConverterTrimmerEditor;
 
 
 /**

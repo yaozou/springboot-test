@@ -1,4 +1,4 @@
-package com.yanwei.platform.member.facade.impl;
+package com.yaozou.platform.member.facade.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
@@ -9,10 +9,10 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
 import com.alibaba.fastjson.JSONObject;
-import com.yanwei.platform.common.annotation.Log;
-import com.yanwei.platform.common.config.BootMemebersConfig;
-import com.yanwei.platform.common.constant.Constants;
-import com.yanwei.platform.member.facade.IMemberProductFacade;
+import com.yaozou.platform.common.annotation.Log;
+import com.yaozou.platform.common.config.BootMemebersConfig;
+import com.yaozou.platform.common.constant.Constants;
+import com.yaozou.platform.member.facade.IMemberProductFacade;
 
 /**
  * 商品查询接口

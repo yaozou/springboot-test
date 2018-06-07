@@ -1,7 +1,7 @@
-package com.yanwei.platform.common.exception;
+package com.yaozou.platform.common.exception;
 
 import java.util.concurrent.BlockingQueue;
-import com.yanwei.platform.common.domain.FieldError;
+import com.yaozou.platform.common.domain.FieldError;
 
 /**
  * 

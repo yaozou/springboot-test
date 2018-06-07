@@ -1,4 +1,4 @@
-package com.yanwei.platform.common.interceptor;
+package com.yaozou.platform.common.interceptor;
 
 /**
  * 数据库上下文常量

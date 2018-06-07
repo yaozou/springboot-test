@@ -1,7 +1,7 @@
-package com.yanwei.platform.common.domain;
+package com.yaozou.platform.common.domain;
 
 import java.util.Date;
-import com.yanwei.platform.common.utils.DateFormatUtil;
+import com.yaozou.platform.common.utils.DateFormatUtil;
 import lombok.Data;
 
 /**

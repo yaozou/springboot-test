@@ -1,4 +1,4 @@
-package com.yanwei.platform.member.facade.impl;
+package com.yaozou.platform.member.facade.impl;
 
  
 import org.springframework.beans.factory.annotation.Autowired;
@@ -6,8 +6,8 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
 import com.alibaba.fastjson.JSONObject;
-import com.yanwei.platform.common.config.BootMemebersConfig;
-import com.yanwei.platform.member.facade.IMemberOrderFacade;
+import com.yaozou.platform.common.config.BootMemebersConfig;
+import com.yaozou.platform.member.facade.IMemberOrderFacade;
 
 /**
  * 订单信息查询接口

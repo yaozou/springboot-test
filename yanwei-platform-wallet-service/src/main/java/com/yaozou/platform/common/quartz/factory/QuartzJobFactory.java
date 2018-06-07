@@ -1,12 +1,12 @@
-package com.yanwei.platform.common.quartz.factory;
+package com.yaozou.platform.common.quartz.factory;
 
 import org.apache.log4j.Logger;
 import org.quartz.Job;
 import org.quartz.JobExecutionContext;
 import org.quartz.JobExecutionException;
 
-import com.yanwei.platform.common.domain.ScheduleJob;
-import com.yanwei.platform.common.quartz.utils.TaskUtils;
+import com.yaozou.platform.common.domain.ScheduleJob;
+import com.yaozou.platform.common.quartz.utils.TaskUtils;
 
  
 /**

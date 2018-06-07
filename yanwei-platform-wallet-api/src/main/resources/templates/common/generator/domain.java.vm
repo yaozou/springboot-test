@@ -2,7 +2,7 @@ package ${package}.domain;
 
 import java.io.Serializable;
 import java.util.Date;
-import com.yanwei.platform.member.domain.PageVo;
+import com.yaozou.platform.member.domain.PageVo;
 
 #if(${hasBigDecimal})
 import java.math.BigDecimal;

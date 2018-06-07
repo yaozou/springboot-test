@@ -1,4 +1,4 @@
-package com.yanwei.platform.common.dao;
+package com.yaozou.platform.common.dao;
 
 import java.util.List;
 import java.util.Map;

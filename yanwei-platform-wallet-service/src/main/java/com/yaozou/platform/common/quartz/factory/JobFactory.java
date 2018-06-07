@@ -1,4 +1,4 @@
-package com.yanwei.platform.common.quartz.factory;
+package com.yaozou.platform.common.quartz.factory;
 
 import org.quartz.spi.TriggerFiredBundle;
 import org.springframework.beans.factory.annotation.Autowired;

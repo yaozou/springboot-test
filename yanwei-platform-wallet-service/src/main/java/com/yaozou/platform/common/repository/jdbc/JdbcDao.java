@@ -1,4 +1,4 @@
-package com.yanwei.platform.common.repository.jdbc;
+package com.yaozou.platform.common.repository.jdbc;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -16,8 +16,8 @@ import org.springframework.jdbc.core.ResultSetExtractor;
 import org.springframework.jdbc.core.namedparam.BeanPropertySqlParameterSource;
 import org.springframework.stereotype.Repository;
 
-import com.yanwei.platform.common.page.Pagination;
-import com.yanwei.platform.common.utils.MyBeanUtils;
+import com.yaozou.platform.common.page.Pagination;
+import com.yaozou.platform.common.utils.MyBeanUtils;
 
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Field;

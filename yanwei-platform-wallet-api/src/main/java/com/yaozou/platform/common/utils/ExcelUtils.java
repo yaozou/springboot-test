@@ -1,4 +1,4 @@
-package com.yanwei.platform.common.utils;
+package com.yaozou.platform.common.utils;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;

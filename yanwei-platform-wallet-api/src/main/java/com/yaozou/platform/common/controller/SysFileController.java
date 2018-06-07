@@ -1,4 +1,4 @@
-package com.yanwei.platform.common.controller;
+package com.yaozou.platform.common.controller;
 
 import java.util.Date;
 import java.util.HashMap;
@@ -20,14 +20,14 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.yanwei.platform.common.config.BootMemebersConfig;
-import com.yanwei.platform.common.domain.SysFileDO;
-import com.yanwei.platform.common.service.SysFileService;
-import com.yanwei.platform.common.utils.FileType;
-import com.yanwei.platform.common.utils.FileUtil;
-import com.yanwei.platform.common.utils.PageUtils;
-import com.yanwei.platform.common.utils.Query;
-import com.yanwei.platform.common.utils.R;
+import com.yaozou.platform.common.config.BootMemebersConfig;
+import com.yaozou.platform.common.domain.SysFileDO;
+import com.yaozou.platform.common.service.SysFileService;
+import com.yaozou.platform.common.utils.FileType;
+import com.yaozou.platform.common.utils.FileUtil;
+import com.yaozou.platform.common.utils.PageUtils;
+import com.yaozou.platform.common.utils.Query;
+import com.yaozou.platform.common.utils.R;
 
 
 /**

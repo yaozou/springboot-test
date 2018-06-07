@@ -19,7 +19,7 @@ spring:
          show_sql: true
          dialect: org.hibernate.dialect.MySQL5Dialect
          ejb:
-           interceptor: com.yanwei.platform.common.interceptor.AutoUserTimeInterceptor
+           interceptor: com.yaozou.platform.common.interceptor.AutoUserTimeInterceptor
      hibernate:
        ddl-auto: none
        naming:

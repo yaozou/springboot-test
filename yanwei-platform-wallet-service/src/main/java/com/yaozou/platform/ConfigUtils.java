@@ -1,7 +1,7 @@
-package com.yanwei.platform;
+package com.yaozou.platform;
 
-import com.yanwei.platform.common.config.BootMemebersConfig;
-import com.yanwei.platform.common.utils.SpringContextHolder;
+import com.yaozou.platform.common.config.BootMemebersConfig;
+import com.yaozou.platform.common.utils.SpringContextHolder;
 
 public class ConfigUtils {
 	static BootMemebersConfig bootMemebersConfig;

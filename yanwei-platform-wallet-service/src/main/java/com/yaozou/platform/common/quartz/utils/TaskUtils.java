@@ -1,4 +1,4 @@
-package com.yanwei.platform.common.quartz.utils;
+package com.yaozou.platform.common.quartz.utils;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -6,8 +6,8 @@ import java.lang.reflect.Method;
 import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
 
-import com.yanwei.platform.common.domain.ScheduleJob;
-import com.yanwei.platform.common.utils.SpringContextHolder;
+import com.yaozou.platform.common.domain.ScheduleJob;
+import com.yaozou.platform.common.utils.SpringContextHolder;
 
 
 

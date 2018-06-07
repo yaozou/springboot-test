@@ -1,4 +1,4 @@
-package com.yanwei.platform.common.page;
+package com.yaozou.platform.common.page;
 
 /**
  * 简单分页类

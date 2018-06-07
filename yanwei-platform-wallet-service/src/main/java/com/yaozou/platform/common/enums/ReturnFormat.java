@@ -1,4 +1,4 @@
-package com.yanwei.platform.common.enums;
+package com.yaozou.platform.common.enums;
 
 import java.util.Map;
 import com.google.common.collect.Maps;

@@ -1,10 +1,10 @@
-package com.yanwei.platform.common.utils;
+package com.yaozou.platform.common.utils;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import com.yanwei.platform.common.domain.Tree;
+import com.yaozou.platform.common.domain.Tree;
 
  
 

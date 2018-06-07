@@ -1,6 +1,6 @@
-package com.yanwei.platform.common.dao;
+package com.yaozou.platform.common.dao;
 
-import com.yanwei.platform.common.domain.SysFileDO;
+import com.yaozou.platform.common.domain.SysFileDO;
 
 import java.util.List;
 import java.util.Map;

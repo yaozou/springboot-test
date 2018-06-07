@@ -1,4 +1,4 @@
-package com.yanwei.platform.common.config;
+package com.yaozou.platform.common.config;
 
 import java.io.IOException;
 
@@ -14,7 +14,7 @@ import org.zbus.mq.Producer;
 import org.zbus.mq.Consumer.ConsumerHandler;
 import org.zbus.mq.server.MqServer;
 import org.zbus.mq.server.MqServerConfig;
-import com.yanwei.platform.common.zbus.ZbusConsumerLogHandler;
+import com.yaozou.platform.common.zbus.ZbusConsumerLogHandler;
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 

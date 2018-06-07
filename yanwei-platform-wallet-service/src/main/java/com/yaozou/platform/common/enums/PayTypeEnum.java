@@ -1,4 +1,4 @@
-package com.yanwei.platform.common.enums;
+package com.yaozou.platform.common.enums;
 
 public enum PayTypeEnum implements IEnumType{
 	Aplipay(1,"支付宝支付"),

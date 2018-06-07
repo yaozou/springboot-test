@@ -1,4 +1,4 @@
-package com.yanwei.platform.common.zbus;
+package com.yaozou.platform.common.zbus;
 
 import java.io.IOException;
 
@@ -7,8 +7,8 @@ import org.zbus.mq.Consumer;
 import org.zbus.mq.Consumer.ConsumerHandler;
 import org.zbus.net.http.Message;
 import com.alibaba.fastjson.JSON;
-import com.yanwei.platform.common.domain.SysLogDO;
-import com.yanwei.platform.common.service.LogService;
+import com.yaozou.platform.common.domain.SysLogDO;
+import com.yaozou.platform.common.service.LogService;
 /**
  * 日志消费类
  * @author luojianhong

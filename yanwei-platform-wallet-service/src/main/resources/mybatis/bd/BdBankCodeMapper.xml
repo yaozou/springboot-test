@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.3//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yaozou.platform.spring.repository.basedata.BdBankCodeMapper">
+ 	<sql id="Base_Column_List">
+ 		bc.`id`,bc.`bank_code`,bc.`bank_name`,bc.`type`,
+ 		bc.`status`,bc.`logo_path`,bc.`color`,
+ 		bc.`bank_card_type`,bc.`use_channel`
+ 	</sql>
+ 	<select id="list" parameterType="map" resultMap="map">
+ 		SELECT 
+ 		<include refid="Base_Column_List" />
+ 		FROM `acc_bd_bank_code` bc
+ 		<where>
+ 			<if test="type != null">
+				AND	bc.`type`=#{type}
+			</if>
+			<if test="status != null">
+				AND	bc.`status`=#{status}
+			</if>	
+			<if test="bankCardType != null">
+				AND bc.`bank_card_type`=#{bankCardType}
+			</if>	
+			<if test="useChannel != null">
+				AND bc.`use_channel`=#{useChannel}
+			</if>
+			<if test="bankCode">
+				AND bc.`bank_code`=#{bankCode}
+			</if>
+ 		</where>
+ 	</select>
+
+	<update id="update" parameterType="map">
+		UPDATE `acc_bd_bank_code`
+		SET STATUS=#{status}
+		WHERE bank_code=#{bankCode}
+	</update>
+ 	
+</mapper>

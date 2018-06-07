@@ -1,4 +1,4 @@
-package com.yanwei.platform.common.config;
+package com.yaozou.platform.common.config;
 
 import com.alibaba.druid.pool.DruidDataSource;
 import com.github.pagehelper.PageHelper;
@@ -28,7 +28,7 @@ import java.util.Properties;
  */
 @Configuration
 @EnableTransactionManagement
-@MapperScan(value = {"com.yanwei.platform.*.dao","com.yanwei.platform.*.repository"})
+@MapperScan(value = {"com.yaozou.platform.*.dao","com.yaozou.platform.*.repository"})
 public class DruidDBConfig {
     
     private Logger  logger = LoggerFactory.getLogger(DruidDBConfig.class);
@@ -145,7 +145,7 @@ public class DruidDBConfig {
         
         sqlSessionFactoryBean.setMapperLocations(resolver.getResources("classpath*:mybatis/**/*.xml"));
       //  annotationClass
-        sqlSessionFactoryBean.setTypeAliasesPackage("com.yanwei.platform");
+        sqlSessionFactoryBean.setTypeAliasesPackage("com.yaozou.platform");
         
         sqlSessionFactoryBean.getObject().getConfiguration().setMapUnderscoreToCamelCase(true);
 

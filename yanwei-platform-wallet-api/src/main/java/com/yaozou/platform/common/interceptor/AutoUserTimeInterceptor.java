@@ -1,4 +1,4 @@
-package com.yanwei.platform.common.interceptor;
+package com.yaozou.platform.common.interceptor;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -8,9 +8,9 @@ import org.hibernate.EmptyInterceptor;
 import org.hibernate.type.Type;
 import org.springframework.stereotype.Component;
 
-import com.yanwei.platform.common.domain.TokenModel;
-import com.yanwei.platform.common.utils.ConvertUtils;
-import com.yanwei.platform.common.utils.HttpContextUtils;
+import com.yaozou.platform.common.domain.TokenModel;
+import com.yaozou.platform.common.utils.ConvertUtils;
+import com.yaozou.platform.common.utils.HttpContextUtils;
 
 /**
  * entity - POJO对象

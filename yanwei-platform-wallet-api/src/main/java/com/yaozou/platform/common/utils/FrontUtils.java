@@ -1,4 +1,4 @@
-package com.yanwei.platform.common.utils;
+package com.yaozou.platform.common.utils;
 
 
 import java.util.Map;
@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.propertyeditors.LocaleEditor;
 import org.springframework.context.MessageSource;
-import com.yanwei.platform.common.utils.URLHelper.PageInfo;
+import com.yaozou.platform.common.utils.URLHelper.PageInfo;
 
 /**
  * 前台工具类

@@ -1,11 +1,11 @@
-package com.yanwei.platform.entity;
+package com.yaozou.platform.entity;
 
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 
-import com.yanwei.platform.core.entity.AbstractEntity;
+import com.yaozou.platform.core.entity.AbstractEntity;
 
 /**
  * 统一定义id的entity基类.

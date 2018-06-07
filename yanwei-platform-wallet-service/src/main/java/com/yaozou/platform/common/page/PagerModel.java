@@ -1,4 +1,4 @@
-package com.yanwei.platform.common.page;
+package com.yaozou.platform.common.page;
 
 import java.util.LinkedList;
 import java.util.List;

@@ -1,4 +1,4 @@
-package com.yanwei.platform.common.interceptor;
+package com.yaozou.platform.common.interceptor;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -12,12 +12,12 @@ import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
 import com.alibaba.druid.util.StringUtils;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.yanwei.platform.common.constant.Constants;
-import com.yanwei.platform.common.domain.TokenModel;
-import com.yanwei.platform.common.manager.TokenManager;
-import com.yanwei.platform.common.utils.ApiPost;
-import com.yanwei.platform.common.utils.RequestUtils;
-import com.yanwei.platform.member.domain.ApiOut;
+import com.yaozou.platform.common.constant.Constants;
+import com.yaozou.platform.common.domain.TokenModel;
+import com.yaozou.platform.common.manager.TokenManager;
+import com.yaozou.platform.common.utils.ApiPost;
+import com.yaozou.platform.common.utils.RequestUtils;
+import com.yaozou.platform.member.domain.ApiOut;
 
 import lombok.extern.slf4j.Slf4j;
 

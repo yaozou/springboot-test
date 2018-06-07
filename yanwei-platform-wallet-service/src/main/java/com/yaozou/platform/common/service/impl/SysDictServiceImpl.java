@@ -1,4 +1,4 @@
-package com.yanwei.platform.common.service.impl;
+package com.yaozou.platform.common.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheEvict;
@@ -8,9 +8,9 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Map;
 
-import com.yanwei.platform.common.dao.SysDictMapper;
-import com.yanwei.platform.common.domain.SysDictDO;
-import com.yanwei.platform.common.service.SysDictService;
+import com.yaozou.platform.common.dao.SysDictMapper;
+import com.yaozou.platform.common.domain.SysDictDO;
+import com.yaozou.platform.common.service.SysDictService;
 
 /**
  * 字典管理服务类

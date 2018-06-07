@@ -1,4 +1,4 @@
-package com.yanwei.platform.common.spring;
+package com.yaozou.platform.common.spring;
 
 import java.lang.reflect.Method;
 import java.util.UUID;
