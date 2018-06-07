@@ -20,8 +20,8 @@ public class TransactionController {
     private TransactionService transactionService;
 
     @PostMapping(path = "/test")
-    public ApiOut<Void> test(@RequestParam int type){
-        transactionService.insert(type);
+    public ApiOut<Void> test(String type){
+        transactionService.insert(new Integer(type));
         return ApiOut.success();
     }
 
