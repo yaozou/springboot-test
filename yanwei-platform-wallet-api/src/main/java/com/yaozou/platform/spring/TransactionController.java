@@ -3,6 +3,7 @@ package com.yaozou.platform.spring;/**
  */
 
 import com.yaozou.platform.member.domain.ApiOut;
+import com.yaozou.platform.spring.service.TestService;
 import com.yaozou.platform.spring.service.TransactionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -18,10 +19,13 @@ import org.springframework.web.bind.annotation.*;
 public class TransactionController {
     @Autowired
     private TransactionService transactionService;
+    @Autowired
+    private TestService testService;
 
     @PostMapping(path = "/test")
     public ApiOut<Void> test(@RequestParam(name = "type", required = false, defaultValue = "1") Integer type){
-        transactionService.insert(type);
+        //transactionService.insert(type);
+        testService.insert(type);
         return ApiOut.success();
     }
 

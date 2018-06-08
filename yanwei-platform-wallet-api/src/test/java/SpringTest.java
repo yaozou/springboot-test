@@ -33,7 +33,7 @@ public class SpringTest {
         //已调通
         url = url+"/spring/transaction/test";
         Map param = new HashMap<>();
-        param.put("type",1);
+        param.put("type",4);
         Map map = ApiPost.sendPost(url,param , API_VER);
         System.out.println("result:"+map);
     }
