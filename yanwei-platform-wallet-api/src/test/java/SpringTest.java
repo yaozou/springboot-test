@@ -31,9 +31,8 @@ public class SpringTest {
          }
          */
         //已调通
-        url = url+"/spring/transaction/test";
+        url = url+"/spring/transaction/test?type=1";
         Map param = new HashMap<>();
-        param.put("type",4);
         Map map = ApiPost.sendPost(url,param , API_VER);
         System.out.println("result:"+map);
     }

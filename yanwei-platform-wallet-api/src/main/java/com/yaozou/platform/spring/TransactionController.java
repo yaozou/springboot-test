@@ -23,7 +23,7 @@ public class TransactionController {
     private TestService testService;
 
     @PostMapping(path = "/test")
-    public ApiOut<Void> test(@RequestParam(name = "type", required = false, defaultValue = "1") Integer type){
+    public ApiOut<Void> test(@RequestParam(name = "type", required = false, defaultValue = "4") Integer type){
         //transactionService.insert(type);
         testService.insert(type);
         return ApiOut.success();
