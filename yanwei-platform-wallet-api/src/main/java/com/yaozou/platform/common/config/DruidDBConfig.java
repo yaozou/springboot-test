@@ -10,6 +10,7 @@ import org.mybatis.spring.annotation.MapperScan;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.AdviceMode;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
@@ -17,6 +18,8 @@ import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
+import org.springframework.transaction.aspectj.AnnotationTransactionAspect;
+
 import javax.sql.DataSource;
 import java.sql.SQLException;
 import java.util.Properties;
@@ -27,7 +30,7 @@ import java.util.Properties;
  * @version $Id: DruidDBConfig.java, v 0.1 2017年10月9日 下午4:37:19 luojianhong Exp $
  */
 @Configuration
-@EnableTransactionManagement
+@EnableTransactionManagement //tx:annotation-driven
 @MapperScan(value = {"com.yaozou.platform.*.dao","com.yaozou.platform.*.repository"})
 public class DruidDBConfig {
     
@@ -156,4 +159,12 @@ public class DruidDBConfig {
     public PlatformTransactionManager transactionManager() throws SQLException {
         return new DataSourceTransactionManager(dataSource());
     }
+
+    @Bean
+    public AnnotationTransactionAspect annotationTransactionAspect() throws SQLException{
+        AnnotationTransactionAspect transactionAspect =  AnnotationTransactionAspect.aspectOf();
+        transactionAspect.setTransactionManager(transactionManager());
+        return transactionAspect;
+    }
+
 }

@@ -27,13 +27,13 @@ public class SpringTest {
          case 2 : updatePublic("alipay",1); break;
          case 3 : updateAToBForPrivate("alipay",1); break;
          case 4 : updateAToBForPublic("alipay",1); break;
-         case 5 : updateAToBForPublic("alipay",2); break;
+         case 5 : updateNotThrowException("alipay",2); break;
          }
          */
         //已调通
         url = url+"/spring/transaction/test";
         Map param = new HashMap<>();
-        param.put("type",2);
+        param.put("type",1);
         Map map = ApiPost.sendPost(url,param , API_VER);
         System.out.println("result:"+map);
     }

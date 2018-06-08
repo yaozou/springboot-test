@@ -6,6 +6,7 @@ import com.yaozou.platform.spring.repository.basedata.BdBankCodeMapper;
 import com.yaozou.platform.spring.service.TransactionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.HashMap;
@@ -29,7 +30,7 @@ public class TransactionServiceImpl implements TransactionService {
             case 2 : updatePublic("alipay",1); break;
             case 3 : updateAToBForPrivate("alipay",1); break;
             case 4 : updateAToBForPublic("alipay",1); break;
-            case 5 : updateAToBForPublic("alipay",2); break;
+            case 5 : updateNotThrowException("alipay",2); break;
         }
 
     }
