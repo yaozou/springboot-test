@@ -40,7 +40,7 @@ public class TransactionServiceImpl implements TransactionService {
     @Override
     public void updatePublic(String bankCode,int status){
         updateNotThrowException(bankCode,status);
-        throw new RuntimeException();
+        //throw new RuntimeException();
     }
 
     @Override
@@ -51,6 +51,7 @@ public class TransactionServiceImpl implements TransactionService {
     @Override
     public void updateAToBForPublic(String bankCode,int status){
         updatePublic(bankCode,status);
+        throw new RuntimeException();
     }
 
     @Override
