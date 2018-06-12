@@ -1,5 +1,10 @@
 package com.yaozou.platform.spring.repository.basedata;
 
+import org.springframework.cache.annotation.CacheConfig;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.CachePut;
+import org.springframework.cache.annotation.Cacheable;
+
 import java.util.List;
 import java.util.Map;
 

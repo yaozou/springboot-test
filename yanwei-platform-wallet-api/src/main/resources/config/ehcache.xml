@@ -12,13 +12,7 @@
 	
 	<cache name="sysDict" maxEntriesLocalHeap="2000" timeToLiveSeconds="600" ></cache>
 	
-	<!--会员等级　timeToLiveSeconds 对象存活时间 -->
-	<cache name="memberGrade" maxEntriesLocalHeap="200" timeToLiveSeconds="600" ></cache>
-	<!--基础信息-->
-	<cache name="memberBaseSettings" maxEntriesLocalHeap="200" timeToLiveSeconds="600" ></cache>
-	
-	
-		
+
 	<cache name="role" eternal="false" maxElementsInMemory="10000"
 		overflowToDisk="false" diskPersistent="false" timeToIdleSeconds="0"
 		timeToLiveSeconds="0" memoryStoreEvictionPolicy="LFU" />

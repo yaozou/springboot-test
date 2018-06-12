@@ -190,6 +190,17 @@
 			<artifactId>jdom2</artifactId>
 		</dependency>
 
+		<!--  cache -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-cache</artifactId>
+		</dependency>
+		<!--  redis -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-redis</artifactId>
+		</dependency>
+
 	</dependencies>
 	<build>
 		<plugins>
