@@ -2,6 +2,7 @@ package com.yaozou.platform.spring.service;/**
  * created by yaozou on 2018/6/7
  */
 
+import java.sql.SQLException;
 import java.util.List;
 
 /**
@@ -19,4 +20,8 @@ public interface TransactionService {
     void updateAToBForPublic(String bankCode,int status);
 
     void updateNotThrowException(String bankCode,int status);
+
+    void updateAToBForSQLException(String bankCode,int status) throws SQLException;
+
+    void updateAToBForRuntimeException(String bankCode,int status);
 }

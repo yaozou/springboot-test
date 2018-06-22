@@ -26,7 +26,11 @@ public class TransactionController {
     public ApiOut<Void> test(@RequestParam(name = "type", required = false, defaultValue = "4") Integer type){
         System.out.println("---type="+type);
         //transactionService.insert(type);
-        testService.insert(type);
+        try {
+            testService.insert(type);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         return ApiOut.success();
     }
 

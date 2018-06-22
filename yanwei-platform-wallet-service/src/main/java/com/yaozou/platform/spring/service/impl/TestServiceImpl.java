@@ -36,13 +36,15 @@ public class TestServiceImpl implements TestService {
     private TransactionService transactionService;
 
     @Override
-    public void insert(int type) {
+    public void insert(int type) throws Exception {
         switch (type){
             case 1 : transactionService.updatePublic("alipay",1); break;
             case 2 : transactionService.updatePublic("alipay",1); break;
             case 3 : transactionService.updateAToBForPrivate("alipay",1); break;
             case 4 : transactionService.updateAToBForPublic("alipay",1); break;
             case 5 : transactionService.updateNotThrowException("alipay",2); break;
+            case 6 : transactionService.updateAToBForRuntimeException("alipay",1); break;
+            case 7 : transactionService.updateAToBForSQLException("alipay",1); break;
         }
 
     }

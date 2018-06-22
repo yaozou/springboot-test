@@ -8,5 +8,5 @@ package com.yaozou.platform.spring.service;/**
  * @create 2018-06-08 16:10
  **/
 public interface TestService {
-    void insert(int type);
+    void insert(int type) throws Exception;
 }

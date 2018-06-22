@@ -28,10 +28,12 @@ public class SpringTest {
          case 3 : updateAToBForPrivate("alipay",1); break;
          case 4 : updateAToBForPublic("alipay",1); break;
          case 5 : updateNotThrowException("alipay",2); break;
+         case 6 : transactionService.updateAToBForRuntimeException("alipay",1); break;
+         case 7 : transactionService.updateAToBForSQLException("alipay",1); break;
          }
          */
         //已调通
-        url = url+"/spring/transaction/test?type=1";
+        url = url+"/spring/transaction/test?type=7";
         Map param = new HashMap<>();
         Map map = ApiPost.sendPost(url,param , API_VER);
         System.out.println("result:"+map);
