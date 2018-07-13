@@ -1,4 +1,4 @@
-package com.yanwei.platform.core.entity;
+package com.yaozou.platform.core.entity;
 
 import java.io.Serializable;
 

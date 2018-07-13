@@ -1,4 +1,4 @@
-package com.yanwei.platform.common.utils;
+package com.yaozou.platform.common.utils;
 
 import org.apache.commons.lang3.Validate;
 import org.slf4j.Logger;

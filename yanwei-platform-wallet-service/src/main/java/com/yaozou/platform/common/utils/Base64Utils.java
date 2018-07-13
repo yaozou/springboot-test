@@ -1,4 +1,4 @@
-package com.yanwei.platform.common.utils;
+package com.yaozou.platform.common.utils;
 
 public class Base64Utils {
 	

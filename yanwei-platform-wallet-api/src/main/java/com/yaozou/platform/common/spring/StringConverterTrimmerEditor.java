@@ -1,4 +1,4 @@
-package com.yanwei.platform.common.spring;
+package com.yaozou.platform.common.spring;
 
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.util.StringUtils;

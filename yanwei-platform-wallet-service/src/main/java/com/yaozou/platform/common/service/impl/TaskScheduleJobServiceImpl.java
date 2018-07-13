@@ -1,4 +1,4 @@
-package com.yanwei.platform.common.service.impl;
+package com.yaozou.platform.common.service.impl;
 
 import org.quartz.SchedulerException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,12 +8,12 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import com.yanwei.platform.common.dao.TaskScheduleJobMapper;
-import com.yanwei.platform.common.domain.ScheduleJob;
-import com.yanwei.platform.common.domain.TaskScheduleJobDO;
-import com.yanwei.platform.common.quartz.utils.QuartzManager;
-import com.yanwei.platform.common.service.TaskScheduleJobService;
-import com.yanwei.platform.common.utils.ScheduleJobUtils;
+import com.yaozou.platform.common.dao.TaskScheduleJobMapper;
+import com.yaozou.platform.common.domain.ScheduleJob;
+import com.yaozou.platform.common.domain.TaskScheduleJobDO;
+import com.yaozou.platform.common.quartz.utils.QuartzManager;
+import com.yaozou.platform.common.service.TaskScheduleJobService;
+import com.yaozou.platform.common.utils.ScheduleJobUtils;
 
 @Service
 public class TaskScheduleJobServiceImpl implements TaskScheduleJobService {

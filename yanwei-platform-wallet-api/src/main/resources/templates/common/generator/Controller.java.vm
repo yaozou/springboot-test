@@ -13,11 +13,11 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import com.yanwei.platform.common.constant.Constants;
-import com.yanwei.platform.common.annotation.Log;
-import com.yanwei.platform.common.enums.CodeEnum;
-import com.yanwei.platform.common.page.Pagination;
-import com.yanwei.platform.member.domain.ApiOut;
+import com.yaozou.platform.common.constant.Constants;
+import com.yaozou.platform.common.annotation.Log;
+import com.yaozou.platform.common.enums.CodeEnum;
+import com.yaozou.platform.common.page.Pagination;
+import com.yaozou.platform.member.domain.ApiOut;
 
 import ${package}.domain.${className}Vo;
 import ${package}.model.${className}Entity;

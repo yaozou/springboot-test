@@ -1,4 +1,4 @@
-package com.yanwei.platform.common.enums;
+package com.yaozou.platform.common.enums;
 
 /**
  * 为了能统一处理数据库中定义的各种状态，状态枚举都需要实现此接口

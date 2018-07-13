@@ -1,7 +1,7 @@
-package com.yanwei.platform.common.utils;
+package com.yaozou.platform.common.utils;
 
-import com.yanwei.platform.common.domain.ScheduleJob;
-import com.yanwei.platform.common.domain.TaskScheduleJobDO;
+import com.yaozou.platform.common.domain.ScheduleJob;
+import com.yaozou.platform.common.domain.TaskScheduleJobDO;
 
 /**
  * 定时任务转换类

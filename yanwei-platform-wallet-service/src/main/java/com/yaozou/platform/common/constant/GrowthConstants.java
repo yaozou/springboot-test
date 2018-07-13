@@ -1,4 +1,4 @@
-package com.yanwei.platform.common.constant;
+package com.yaozou.platform.common.constant;
 
 /**
  * 成长值　常量记录表

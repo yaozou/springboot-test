@@ -1,4 +1,4 @@
-package com.yanwei.platform.common.utils;
+package com.yaozou.platform.common.utils;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -6,8 +6,8 @@ import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
 import com.alibaba.druid.util.StringUtils;
-import com.yanwei.platform.common.constant.Constants;
-import com.yanwei.platform.common.domain.TokenModel;
+import com.yaozou.platform.common.constant.Constants;
+import com.yaozou.platform.common.domain.TokenModel;
 
 
 /**

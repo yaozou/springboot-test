@@ -1,4 +1,4 @@
-package com.yanwei.platform.common.config;
+package com.yaozou.platform.common.config;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;

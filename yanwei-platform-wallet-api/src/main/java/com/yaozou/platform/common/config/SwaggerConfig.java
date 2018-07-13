@@ -1,4 +1,4 @@
-package com.yanwei.platform.common.config;
+package com.yaozou.platform.common.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -25,7 +25,7 @@ public class SwaggerConfig {
         return new Docket(DocumentationType.SWAGGER_2)  
                 .apiInfo(apiInfo())  
                 .select()  
-                .apis(RequestHandlerSelectors.basePackage("com.yanwei.platform"))  
+                .apis(RequestHandlerSelectors.basePackage("com.yaozou.platform"))
                 .paths(PathSelectors.any())  
                 .build();  
     }  

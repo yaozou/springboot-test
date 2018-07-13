@@ -1,10 +1,10 @@
-package com.yanwei.platform.common.listenner;
+package com.yaozou.platform.common.listenner;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
-import com.yanwei.platform.common.service.TaskScheduleJobService;
+import com.yaozou.platform.common.service.TaskScheduleJobService;
 
 @Component
 @Order(value = 1)

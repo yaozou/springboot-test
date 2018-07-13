@@ -1,4 +1,4 @@
-package com.yanwei.platform.common.constant;
+package com.yaozou.platform.common.constant;
 
 /**
  * 处理状态常量表

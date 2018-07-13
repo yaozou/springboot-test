@@ -1,4 +1,4 @@
-package com.yanwei.platform.member.facade;
+package com.yaozou.platform.member.facade;
 
 import com.alibaba.fastjson.JSONObject;
 

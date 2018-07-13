@@ -1,4 +1,4 @@
-package com.yanwei.platform.common.template;
+package com.yaozou.platform.common.template;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang.StringUtils;
@@ -7,10 +7,10 @@ import org.apache.velocity.Template;
 import org.apache.velocity.VelocityContext;
 import org.apache.velocity.app.Velocity;
 
-import com.yanwei.platform.common.domain.ColumnDO;
-import com.yanwei.platform.common.domain.TableDO;
-import com.yanwei.platform.common.utils.BDException;
-import com.yanwei.platform.common.utils.DateUtils;
+import com.yaozou.platform.common.domain.ColumnDO;
+import com.yaozou.platform.common.domain.TableDO;
+import com.yaozou.platform.common.utils.BDException;
+import com.yaozou.platform.common.utils.DateUtils;
 
 import java.io.File;
 import java.io.IOException;

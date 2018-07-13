@@ -1,4 +1,4 @@
-package com.yanwei.platform.common.controller;
+package com.yaozou.platform.common.controller;
 
 import java.util.List;
 import java.util.Map;
@@ -13,11 +13,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-import com.yanwei.platform.common.domain.TaskScheduleJobDO;
-import com.yanwei.platform.common.service.TaskScheduleJobService;
-import com.yanwei.platform.common.utils.PageUtils;
-import com.yanwei.platform.common.utils.Query;
-import com.yanwei.platform.common.utils.R;
+import com.yaozou.platform.common.domain.TaskScheduleJobDO;
+import com.yaozou.platform.common.service.TaskScheduleJobService;
+import com.yaozou.platform.common.utils.PageUtils;
+import com.yaozou.platform.common.utils.Query;
+import com.yaozou.platform.common.utils.R;
 
 /**
  * 定时任务管理类

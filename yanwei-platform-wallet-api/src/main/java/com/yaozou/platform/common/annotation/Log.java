@@ -1,4 +1,4 @@
-package com.yanwei.platform.common.annotation;
+package com.yaozou.platform.common.annotation;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.ElementType;

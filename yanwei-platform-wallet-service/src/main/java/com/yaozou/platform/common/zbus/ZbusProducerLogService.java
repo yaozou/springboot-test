@@ -1,4 +1,4 @@
-package com.yanwei.platform.common.zbus;
+package com.yaozou.platform.common.zbus;
 
 import java.io.IOException;
 

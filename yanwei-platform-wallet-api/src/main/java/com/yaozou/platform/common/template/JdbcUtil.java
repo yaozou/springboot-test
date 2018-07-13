@@ -1,4 +1,4 @@
-package com.yanwei.platform.common.template;
+package com.yaozou.platform.common.template;
 
 import java.io.InputStream;
 import java.sql.Connection;

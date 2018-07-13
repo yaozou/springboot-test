@@ -1,6 +1,6 @@
-package com.yanwei.platform.common.service;
+package com.yaozou.platform.common.service;
 
-import com.yanwei.platform.common.domain.SysDictDO;
+import com.yaozou.platform.common.domain.SysDictDO;
 import java.util.List;
 import java.util.Map;
 

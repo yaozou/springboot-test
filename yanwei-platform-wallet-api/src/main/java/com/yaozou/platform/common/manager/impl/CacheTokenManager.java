@@ -1,4 +1,4 @@
-package com.yanwei.platform.common.manager.impl;
+package com.yaozou.platform.common.manager.impl;
 
 import java.util.UUID;
 
@@ -8,13 +8,13 @@ import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Component;
 import com.alibaba.fastjson.JSONObject;
-import com.yanwei.platform.common.constant.Constants;
+import com.yaozou.platform.common.constant.Constants;
 
-import com.yanwei.platform.common.domain.TokenModel;
-import com.yanwei.platform.common.interceptor.AuthorizationInterceptor;
-import com.yanwei.platform.common.manager.TokenManager;
-import com.yanwei.platform.member.facade.IMemberShopFacade;
-import com.yanwei.platform.member.facade.IMemberUseFacade;
+import com.yaozou.platform.common.domain.TokenModel;
+import com.yaozou.platform.common.interceptor.AuthorizationInterceptor;
+import com.yaozou.platform.common.manager.TokenManager;
+import com.yaozou.platform.member.facade.IMemberShopFacade;
+import com.yaozou.platform.member.facade.IMemberUseFacade;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -42,7 +42,7 @@ public class CacheTokenManager implements TokenManager {
 
 
 	/**
-	 * @see com.yanwei.platform.common.manager.TokenManager#createToken(long)
+	 * @see com.yaozou.platform.common.manager.TokenManager#createToken(long)
 	 */
 	public TokenModel createToken(String userId, String userName) {
 		// 使用uuid作为源token
@@ -55,7 +55,7 @@ public class CacheTokenManager implements TokenManager {
 	/**
 	 * 通过token获取用户信息
 	 * 
-	 * @see com.yanwei.platform.common.manager.TokenManager#getToken(java.lang.String)
+	 * @see com.yaozou.platform.common.manager.TokenManager#getToken(java.lang.String)
 	 */
 	@Cacheable(value = MEMBER_USERS_NAME, key = "#token + 'getToken'")
 	public TokenModel getToken(String token) {
@@ -88,7 +88,7 @@ public class CacheTokenManager implements TokenManager {
 	/**
 	 * 较验token有效性
 	 * 
-	 * @see com.yanwei.platform.common.manager.TokenManager#checkToken(com.yanwei.platform.common.domain.TokenModel)
+	 * @see com.yaozou.platform.common.manager.TokenManager#checkToken(com.yaozou.platform.common.domain.TokenModel)
 	 */
 	public boolean checkToken(String token) {
 		TokenModel tokenModel = getToken(token);
@@ -110,7 +110,7 @@ public class CacheTokenManager implements TokenManager {
 	}
 
 	/**
-	 * @see com.yanwei.platform.common.manager.TokenManager#deleteToken(long)
+	 * @see com.yaozou.platform.common.manager.TokenManager#deleteToken(long)
 	 */
 	@CacheEvict(value = MEMBER_USERS_NAME, key = "#token + 'getToken'")
 	public void deleteToken(String token) {

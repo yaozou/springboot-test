@@ -1,4 +1,4 @@
-package com.yanwei.platform.common.quartz.utils;
+package com.yaozou.platform.common.quartz.utils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,9 +21,9 @@ import org.springframework.scheduling.quartz.SchedulerFactoryBean;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
-import com.yanwei.platform.common.domain.ScheduleJob;
-import com.yanwei.platform.common.utils.SpringContextHolder;
-import com.yanwei.platform.common.quartz.factory.*;;
+import com.yaozou.platform.common.domain.ScheduleJob;
+import com.yaozou.platform.common.utils.SpringContextHolder;
+import com.yaozou.platform.common.quartz.factory.*;;
 
 
 /**

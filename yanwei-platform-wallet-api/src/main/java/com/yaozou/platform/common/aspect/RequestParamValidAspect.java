@@ -1,4 +1,4 @@
-package com.yanwei.platform.common.aspect;
+package com.yaozou.platform.common.aspect;
 
 import java.lang.reflect.Method;
 import java.util.Iterator;
@@ -18,8 +18,8 @@ import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
 import org.aspectj.lang.reflect.MethodSignature;
 import org.springframework.stereotype.Component;
-import com.yanwei.platform.common.domain.FieldError;
-import com.yanwei.platform.common.exception.ParamValidException;
+import com.yaozou.platform.common.domain.FieldError;
+import com.yaozou.platform.common.exception.ParamValidException;
 import org.hibernate.validator.internal.engine.path.PathImpl;
 
 @Aspect
@@ -41,7 +41,7 @@ public class RequestParamValidAspect {
         return beanValidator.validate(bean);
     }
 
-    @Pointcut("execution(* com.yanwei.platform.member.controller.*.*(..))")
+    @Pointcut("execution(* com.yaozou.platform.member.controller.*.*(..))")
     public void soaControllerBefore() {
 
     }

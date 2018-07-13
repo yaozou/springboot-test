@@ -1,4 +1,4 @@
-package com.yanwei.platform.common.task;
+package com.yaozou.platform.common.task;
 
 import java.util.Date;
 import org.apache.log4j.Logger;

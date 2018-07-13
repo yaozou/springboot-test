@@ -1,4 +1,4 @@
-package com.yanwei.platform.common.config;
+package com.yaozou.platform.common.config;
 
 import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.cache.ehcache.EhCacheCacheManager;
@@ -11,12 +11,12 @@ import org.springframework.core.io.ClassPathResource;
 @EnableCaching
 public class CacheConfiguration {
 
-    @Bean
+   // @Bean
     public EhCacheCacheManager ehCacheCacheManager(EhCacheManagerFactoryBean bean) {
         return new EhCacheCacheManager(bean.getObject());
     }
 
-    @Bean
+   // @Bean
     public EhCacheManagerFactoryBean ehCacheManagerFactoryBean() {
         
         EhCacheManagerFactoryBean cacheManagerFactoryBean = new EhCacheManagerFactoryBean();

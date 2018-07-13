@@ -1,4 +1,4 @@
-package com.yanwei.platform.common.service;
+package com.yaozou.platform.common.service;
 
 import java.util.List;
 import java.util.Map;
@@ -7,10 +7,10 @@ import javax.annotation.Resource;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.yanwei.platform.common.page.Pagination;
-import com.yanwei.platform.common.repository.CustomRepository;
-import com.yanwei.platform.common.repository.jdbc.Finder;
-import com.yanwei.platform.common.repository.jdbc.JdbcDao;
+import com.yaozou.platform.common.page.Pagination;
+import com.yaozou.platform.common.repository.CustomRepository;
+import com.yaozou.platform.common.repository.jdbc.Finder;
+import com.yaozou.platform.common.repository.jdbc.JdbcDao;
 
 /**
  * 通用实体操作类

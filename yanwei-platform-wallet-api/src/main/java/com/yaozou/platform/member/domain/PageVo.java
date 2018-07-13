@@ -1,4 +1,4 @@
-package com.yanwei.platform.member.domain;
+package com.yaozou.platform.member.domain;
 
 import lombok.Data;
 

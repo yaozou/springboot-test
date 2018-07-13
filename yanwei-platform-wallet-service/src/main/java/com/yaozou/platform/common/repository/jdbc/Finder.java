@@ -1,4 +1,4 @@
-package com.yanwei.platform.common.repository.jdbc;
+package com.yaozou.platform.common.repository.jdbc;
 
 import java.util.ArrayList;
 import java.util.Collection;

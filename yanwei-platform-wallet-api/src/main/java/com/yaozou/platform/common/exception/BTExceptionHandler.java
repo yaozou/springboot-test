@@ -1,4 +1,4 @@
-package com.yanwei.platform.common.exception;
+package com.yaozou.platform.common.exception;
 
 import org.apache.shiro.authz.AuthorizationException;
 import org.slf4j.Logger;
@@ -7,7 +7,7 @@ import org.springframework.dao.DuplicateKeyException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.servlet.ModelAndView;
-import com.yanwei.platform.common.utils.R;
+import com.yaozou.platform.common.utils.R;
 
 /**
  * 异常处理器

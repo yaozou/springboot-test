@@ -1,6 +1,6 @@
-package com.yanwei.platform.common.domain;
+package com.yaozou.platform.common.domain;
 
-import com.yanwei.platform.common.exception.SystemException;
+import com.yaozou.platform.common.exception.SystemException;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;

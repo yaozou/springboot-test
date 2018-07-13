@@ -1,4 +1,4 @@
-package com.yanwei.platform.common.repository;
+package com.yaozou.platform.common.repository;
 
 import java.util.ArrayList;
 import java.util.List;

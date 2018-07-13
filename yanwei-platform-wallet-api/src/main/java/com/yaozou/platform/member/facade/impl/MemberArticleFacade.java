@@ -1,4 +1,4 @@
-package com.yanwei.platform.member.facade.impl;
+package com.yaozou.platform.member.facade.impl;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,9 +7,9 @@ import org.springframework.web.client.RestTemplate;
 
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
-import com.yanwei.platform.common.annotation.Log;
-import com.yanwei.platform.common.config.BootMemebersConfig;
-import com.yanwei.platform.member.facade.IMemberArticleFacade;
+import com.yaozou.platform.common.annotation.Log;
+import com.yaozou.platform.common.config.BootMemebersConfig;
+import com.yaozou.platform.member.facade.IMemberArticleFacade;
 
 
 /**

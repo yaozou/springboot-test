@@ -1,10 +1,10 @@
-package com.yanwei.platform.common.controller;
+package com.yaozou.platform.common.controller;
 
 import org.springframework.stereotype.Controller;
 
 
-//import com.yanwei.platform.common.utils.ShiroUtils;
-//import com.yanwei.platform.system.domain.SysUserDO;
+//import com.yaozou.platform.common.utils.ShiroUtils;
+//import com.yaozou.platform.system.domain.SysUserDO;
 
 @Controller
 public class BaseController {

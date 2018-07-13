@@ -1,4 +1,4 @@
-package com.yanwei.platform.common.repository;
+package com.yaozou.platform.common.repository;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,10 +23,10 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.yanwei.platform.common.page.Pagination;
-import com.yanwei.platform.common.repository.jdbc.Finder;
-import com.yanwei.platform.common.repository.jdbc.Updater;
-import com.yanwei.platform.common.utils.MyBeanUtils;
+import com.yaozou.platform.common.page.Pagination;
+import com.yaozou.platform.common.repository.jdbc.Finder;
+import com.yaozou.platform.common.repository.jdbc.Updater;
+import com.yaozou.platform.common.utils.MyBeanUtils;
  
  
 

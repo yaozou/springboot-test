@@ -1,4 +1,4 @@
-package com.yanwei.platform.common.interceptor;
+package com.yaozou.platform.common.interceptor;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -12,12 +12,12 @@ import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
 import com.alibaba.druid.util.StringUtils;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.yanwei.platform.common.constant.Constants;
-import com.yanwei.platform.common.domain.TokenModel;
-import com.yanwei.platform.common.manager.TokenManager;
-import com.yanwei.platform.common.utils.ApiPost;
-import com.yanwei.platform.common.utils.RequestUtils;
-import com.yanwei.platform.member.domain.ApiOut;
+import com.yaozou.platform.common.constant.Constants;
+import com.yaozou.platform.common.domain.TokenModel;
+import com.yaozou.platform.common.manager.TokenManager;
+import com.yaozou.platform.common.utils.ApiPost;
+import com.yaozou.platform.common.utils.RequestUtils;
+import com.yaozou.platform.member.domain.ApiOut;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -74,7 +74,6 @@ public class AuthorizationInterceptor extends HandlerInterceptorAdapter {
     
     /**
      * 权限控制
-     * @param userType
      * @param url
      * @return
      */
@@ -107,7 +106,6 @@ public class AuthorizationInterceptor extends HandlerInterceptorAdapter {
      * 返回输出json
      *
      * @param response
-     * @param resultCode
      */
     private static final void out(HttpServletResponse response, ApiOut<String> apiOut) {
         ObjectMapper objectMapper = new ObjectMapper();
@@ -129,22 +127,22 @@ public class AuthorizationInterceptor extends HandlerInterceptorAdapter {
     
     public boolean isInterceptionUrl(String url) {
 		String[] notInterUrl = {"/platform/user/accDetail/refundOrder"};
-		for (String str : notInterUrl) {
+		/*for (String str : notInterUrl) {
 			if (url.indexOf(str) > -1) {
 				return false;
 			}
-		}
-		return true;
+		}*/
+		return false;
 	}
 
 	public  boolean haveToVerifyToken(String url) {
         String[] notInterUrl = {"/app/user/acount/sendMsgForBindPhone","/app/user/acount/balance",
                                 "/platform/user/acount/balance","/platform/user/acount/rebindPhone","/platform/user/acount/sendMsgForBindPhone"};
-        for (String str : notInterUrl) {
+        /*for (String str : notInterUrl) {
             if (url.indexOf(str) > -1) {
                 return false;
             }
-        }
-        return true;
+        }*/
+        return false;
     }
 }

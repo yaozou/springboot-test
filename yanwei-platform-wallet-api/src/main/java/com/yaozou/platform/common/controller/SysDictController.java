@@ -1,4 +1,4 @@
-package com.yanwei.platform.common.controller;
+package com.yaozou.platform.common.controller;
 
 import java.util.List;
 import java.util.Map;
@@ -14,11 +14,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.yanwei.platform.common.domain.SysDictDO;
-import com.yanwei.platform.common.service.SysDictService;
-import com.yanwei.platform.common.utils.PageUtils;
-import com.yanwei.platform.common.utils.Query;
-import com.yanwei.platform.common.utils.R;
+import com.yaozou.platform.common.domain.SysDictDO;
+import com.yaozou.platform.common.service.SysDictService;
+import com.yaozou.platform.common.utils.PageUtils;
+import com.yaozou.platform.common.utils.Query;
+import com.yaozou.platform.common.utils.R;
 
 /**
  * 字典表
