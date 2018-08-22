@@ -18,8 +18,8 @@
 
 
 	<modules>
-		<module>yaozou-platform-service</module>
-		<module>yaozou-platform-api</module>
+		<module>yanwei-platform-wallet-api</module>
+		<module>yanwei-platform-wallet-service</module>
 	</modules>
 
 	<properties>
@@ -32,7 +32,7 @@
 		<mybatis-plus.version>2.1-gamma</mybatis-plus.version>
 		<velocity.version>1.7</velocity.version>
 		<swagger.version>2.6.0</swagger.version>
-		<docker.image.prefix>memebers</docker.image.prefix>
+		<docker.image.prefix>test-springboot</docker.image.prefix>
 		<maven.compiler.compilerVersion>1.8</maven.compiler.compilerVersion>
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
