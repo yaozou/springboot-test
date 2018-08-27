@@ -1,7 +1,5 @@
 package com.yaozou.platform.common.controller;
 
-import java.util.Date;
-
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,8 +11,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.yaozou.platform.common.config.BootMemebersConfig;
-import com.yaozou.platform.common.domain.SysFileDO;
-import com.yaozou.platform.common.utils.FileType;
 import com.yaozou.platform.common.utils.FileUtil;
 import com.yaozou.platform.common.utils.R;
 
@@ -37,7 +33,6 @@ public class SysFileController extends BaseController {
 		String fileName = file.getOriginalFilename();
 		fileName = FileUtil.RenameToUUID(fileName);
 		String strPath="/files/" + fileName;
-		SysFileDO sysFile = new SysFileDO(FileType.fileType(fileName),strPath, new Date());
 		try {
             FileUtil.uploadFile(file.getBytes(), 
                 bootMemebersConfig.getUploadPath(), 
