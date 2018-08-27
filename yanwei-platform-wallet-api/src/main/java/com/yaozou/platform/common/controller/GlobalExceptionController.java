@@ -2,8 +2,7 @@ package com.yaozou.platform.common.controller;
 
 import com.yaozou.platform.common.enums.CodeEnum;
 import com.yaozou.platform.common.exception.MembersException;
-import com.yaozou.platform.common.exception.ParamValidException;
-import com.yaozou.platform.member.domain.ApiOut;
+import com.yaozou.platform.common.domain.ApiOut;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
@@ -25,16 +24,7 @@ public class GlobalExceptionController {
             code = ((MembersException) ex).getCode();
             msg = ex.getMessage();
 
-        } else if (ex instanceof ParamValidException) {
-
-            code = CodeEnum.PARAM_ERROR.getCode();
-            msg = CodeEnum.PARAM_ERROR.getMsg();
-
-            ApiOut<Object> apiOut = ApiOut.failure(code, msg);
-            apiOut.setData(((ParamValidException) ex).getFieldErrors());
-
-            return apiOut;
-        } else {
+        }else {
             code = CodeEnum.SYSTEM_ERROR.getCode();
             msg = CodeEnum.SYSTEM_ERROR.getMsg();
         }

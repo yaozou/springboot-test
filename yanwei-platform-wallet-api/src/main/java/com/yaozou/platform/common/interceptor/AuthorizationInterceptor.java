@@ -17,7 +17,7 @@ import com.yaozou.platform.common.domain.TokenModel;
 import com.yaozou.platform.common.manager.TokenManager;
 import com.yaozou.platform.common.utils.ApiPost;
 import com.yaozou.platform.common.utils.RequestUtils;
-import com.yaozou.platform.member.domain.ApiOut;
+import com.yaozou.platform.common.domain.ApiOut;
 
 import lombok.extern.slf4j.Slf4j;
 

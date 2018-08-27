@@ -4,9 +4,7 @@ import java.io.Serializable;
 import com.alibaba.fastjson.JSON;
 
 /**
- * 统一格式化输出信息　
- * @author luojianhong
- * @version $Id: OutputJson.java, v 0.1 2017年11月27日 上午10:51:00 luojianhong Exp $
+ * 统一格式化输出信息
  */
 public class OutputJson implements Serializable {
 

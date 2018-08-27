@@ -1,4 +1,4 @@
-package com.yaozou.platform.member.domain;
+package com.yaozou.platform.common.domain;
 
 public class Paging implements java.io.Serializable {
     /**

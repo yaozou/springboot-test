@@ -1,6 +1,6 @@
 package com.yaozou.platform.spring;
 
-import com.yaozou.platform.member.domain.ApiOut;
+import com.yaozou.platform.common.domain.ApiOut;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.core.KafkaTemplate;

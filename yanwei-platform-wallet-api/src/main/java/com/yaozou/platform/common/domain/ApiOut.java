@@ -1,4 +1,4 @@
-package com.yaozou.platform.member.domain;
+package com.yaozou.platform.common.domain;
 
 import java.util.List;
 import java.util.Map;
